@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html>
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Landmark Construction Company</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Site</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Calibri, Arial, sans-serif;
-      background-image: url('stock-photo-house-frame-model.jpeg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-color: #fff;
-      color: #222;
-    }
     .logo {
       position: absolute;
       top: 0px;
       left: 0px;
       height: 200px;
+      /* width: auto;
       z-index: 1000;
+    }
+    body {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Your page content here -->
+</body>
+</html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Landmark Construction & Structural Company</title>
+  <meta name="viewport" content="width=devic e-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Calibri, Arial, sans-serif;
+      background: #fff;
+      color: #222;
     }
     header {
       background: #fff;
       padding: 8px;
       text-align: center;
-      margin-bottom: 20px;
     }
-    header img {
-      height: 100px;
-      width: auto;
-      margin-bottom: 5px;
-      margin-top: 10px;
+    .main-image {
+      width: 100%;
+      max-width: 100vw;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
     .headline {
       background: #eaeaea;
@@ -44,7 +53,115 @@
       font-weight: bold;
       color: #336666;
     }
-    /* ...rest of your CSS... */
+    .services, .project-list, .contact, .licenses, .about {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #eaeaea;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .section-title {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #222;
+      text-align: center;
+    }
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+    .service {
+      min-width: 220px;
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      text-align: center;
+      flex: 1 1 220px;
+    }
+    .service-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #336666;
+    }
+    ul {
+      padding-left: 0;
+      list-style: none;
+      margin: 0;
+    }
+    .contact p, .about p, .licenses p {
+      margin: 6px 0;
+      text-align: center;
+    }
+    .project-list-images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 24px 0 0 0;
+    }
+    .project-list-images img {
+      width: 200px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+    .badge-list {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .badge-list img {
+      height: 60px;
+      object-fit: contain;
+    }
+    @media (max-width: 600px) {
+      .service-list, .project-list-images, .badge-list {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+<head>
+  <style>
+    header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+img {
+  height: 45px;
+  width: auto;
+  margin-bottom: 10px;
+}
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    header img {
+      height: 45px;
+      width: auto;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+  </style>
+<head>
+  <style>
+    /* CSS here */
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    header img {
+      height: 100px;
+      width: auto;
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 <body>
@@ -52,12 +169,12 @@
     <img src="Landmark Logo.png" alt="Landmark Construction Company Logo">
     <div>Work with Integrity &bull; You can depend on us.</div>
   </header>
-  <div class="headline">
-    At Landmark Construction Company, we build relationships.
-  </div>
-  <!-- rest of your HTML content here -->
+  <!-- rest of your HTML... -->
 </body>
-</html>
+
+  <div class="headline">
+  At Landmark Construction Company, we build relationships.
+</div>
 
   <section class="services">
     <div class="section-title">Our Services</div>
@@ -154,18 +271,21 @@
 </div> 
            <div style="text-align: center;">
   <a href="https://www.gaf.com/en-us/residential">
+    <img src="GAF_Logo.png" alt="GAF logo" style="width:90px; height:auto;">
+    <div>GAF #</div>
     <img src="GAF_Logo.png" alt="GAF logo" style="width:96px; height:auto;">
   </a>
 </div> 
                <div style="text-align: center;">
   <a href="https://www.certainteed.com/products/residential-roofing-products">
     <img src="logo-certainteed.png" alt="Certainteed logo" style="width:85px; height:auto;">
+    <div>Certainteed #</div>
   </a>
 </div> 
       <!-- Add or remove badges as needed -->
     </div>
 </section>
-  
+
   <section class="project-list">
     <div class="section-title">Project List</div>
     <div class="project-list-images">
