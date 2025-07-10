@@ -157,11 +157,33 @@ img {
       display: inline-block;
       text-align: left; 
       margin: 0 auto; /* optional, for extra safety */
-}
+    }
 
     .contact button {
       margin: 20px auto;
       display: block;
+    }
+
+    .custom-bg-image {
+      width: 100%;
+      height: 400px; /* Adjust height as needed */
+      background-image: url('3d-rendering-wooden-house.jpg');
+      background-size: contain;      /* Show entire image, may add letterboxing */
+      background-repeat: no-repeat;  /* Prevent tiling */
+      background-position: center;   /* Center the image */
+      background-color: none;     /* Optional: fill background behind image */
+      margin: 20px auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header img {
+      height: 100px;
+      width: auto;
+      margin-bottom: 5px;
     }
     /* Add more CSS here if needed*/
   </style>
