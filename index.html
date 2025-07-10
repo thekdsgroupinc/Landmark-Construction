@@ -230,7 +230,9 @@ img {
 
  <section class="contact">
   <div class="section-title">Contact Us</div>
-  <form action="mailto:info@thelandmarkinc.com" method="POST" enctype="text/plain">
+  <button id="showFormBtn" type="button">Get in Touch</button>
+  
+  <form id="contactForm" style="display:none; margin-top: 20px;">
     <label for="name"><strong>Name:</strong></label><br>
     <input type="text" id="name" name="name" required style="width:100%;"><br><br>
 
@@ -242,6 +244,7 @@ img {
 
     <button type="submit">Send</button>
   </form>
+
   <p style="margin-top:15px;">
     Or call us at <strong>(650) 273-3008</strong><br>
     1300 Huntington Ave #1015<br>
