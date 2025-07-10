@@ -154,13 +154,15 @@ img {
 <head>
   <style>
     /* Add more CSS here if needed*/
-    .custom-bg-image {
+  .custom-bg-image {
   width: 100%;
   height: 400px; /* Adjust height as needed */
-  background-image: url('3d-rendering-wooden-house.jpg'); /* Replace with your image path */
-  background-size: cover;
-  background-position: center;
-  margin: 40 auto 40px auto; /* 40px space above and below the image */
+  background-image: url('3d-rendering-wooden-house.jpg');
+  background-size: contain;      /* Show entire image, may add letterboxing */
+  background-repeat: no-repeat;  /* Prevent tiling */
+  background-position: center;   /* Center the image */
+  background-color: #eaeaea;     /* Optional: fill background behind image */
+  margin: 40px auto;
 }
     header {
       text-align: center;
