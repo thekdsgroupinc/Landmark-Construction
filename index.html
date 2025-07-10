@@ -153,20 +153,25 @@ img {
       text-align: center;
     }
 
-   .contact {
+  .contact {
   text-align: center;
 }
 
 #contactForm {
   display: inline-block;
-  text-align: left; /* keeps fields left-aligned inside the centered form */
+  text-align: left;
   margin-top: 20px;
+  min-width: 320px;
+  max-width: 100%;
 }
 
 #contactForm input,
 #contactForm textarea {
-  width: 300px; /* or whatever width you prefer */
+  width: 300px;
   max-width: 90vw;
+  box-sizing: border-box;
+  display: block;
+  margin-bottom: 12px;
 }
 
     .custom-bg-image {
