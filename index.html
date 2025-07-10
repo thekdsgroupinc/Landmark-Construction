@@ -228,12 +228,26 @@ img {
 <p style="font-size: 32px;">Page is under construction...</p>
 </section>
 
-  <section class="contact">
-    <div class="section-title">Contact Us</div>
-    <p><strong>Tel:</strong> (650) 273-3008</p>
-    <p><strong>Email:</strong> <a href="mailto:info@thelanddmarkinc.com">info@thelandmarkinc.com</a></p>
-    <p>1300 Huntington Ave #1015<br>San Bruno, CA 94066</p>
-  </section>
+ <section class="contact">
+  <div class="section-title">Contact Us</div>
+  <form action="mailto:info@thelandmarkinc.com" method="POST" enctype="text/plain">
+    <label for="name"><strong>Name:</strong></label><br>
+    <input type="text" id="name" name="name" required style="width:100%;"><br><br>
+
+    <label for="email"><strong>Email:</strong></label><br>
+    <input type="email" id="email" name="email" required style="width:100%;"><br><br>
+
+    <label for="message"><strong>Message:</strong></label><br>
+    <textarea id="message" name="message" rows="5" required style="width:100%;"></textarea><br><br>
+
+    <button type="submit">Send</button>
+  </form>
+  <p style="margin-top:15px;">
+    Or call us at <strong>(650) 273-3008</strong><br>
+    1300 Huntington Ave #1015<br>
+    San Bruno, CA 94066
+  </p>
+</section>
 
   <section class="licenses">
     <div class="section-title">Licenses & Credentials</div>
