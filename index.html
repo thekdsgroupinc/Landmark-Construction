@@ -1,29 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Your Site</title>
-  <style>
-    .logo {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      height: 200px;
-      /* width: auto;
-      z-index: 1000;
-    }
-    body {
-      position: relative;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Your page content here -->
-</body>
-</html>
 <html lang="en">
 <head>
-  <head>
   <meta charset="UTF-8">
   <title>Landmark Construction Company</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,11 +10,19 @@
       font-family: Calibri, Arial, sans-serif;
       background: #fff;
       color: #222;
+      position: relative;
     }
     header {
       background: #fff;
       padding: 8px;
       text-align: center;
+      margin-bottom: 20px;
+    }
+    header img {
+      height: 100px;
+      width: auto;
+      margin-bottom: 5px;
+      margin-top: 10px;
     }
     .main-image {
       width: 100%;
@@ -128,95 +113,78 @@
         align-items: center;
       }
     }
-  </style>
-<head>
-  <style>
-    header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-img {
-  height: 45px;
-  width: auto;
-  margin-bottom: 10px;
-}
-    header img {
-      height: 45px;
-      width: auto;
-      margin-bottom: 10px;
-      margin-top: 10px;
-    }
-  </style>
-<head>
-  <style>
     .contact {
       text-align: center;
     }
-
- .contact {
-  text-align: center;
-}
-
-#contactForm {
-  display: inline-block;
-  text-align: left;
-  margin-top: 20px;
-  /* Optional: Add some padding and border for better visuals */
-  padding: 24px 32px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background: #fafafa;
-}
-
-#contactForm input,
-#contactForm textarea {
-  width: 320px;
-  max-width: 90vw;
-  margin-bottom: 16px;
-  box-sizing: border-box;
-  display: block;
-}
-
+    #contactForm {
+      display: inline-block;
+      text-align: left;
+      margin-top: 20px;
+      padding: 24px 32px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    #contactForm input,
+    #contactForm textarea {
+      width: 320px;
+      max-width: 90vw;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      display: block;
+    }
     .custom-bg-image {
       width: 100%;
-      height: 400px; /* Adjust height as needed */
+      height: 400px;
       background-image: url('3d-rendering-wooden-house.jpg');
-      background-size: contain;      /* Show entire image, may add letterboxing */
-      background-repeat: no-repeat;  /* Prevent tiling */
-      background-position: center;   /* Center the image */
-      background-color: none;     /* Optional: fill background behind image */
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
       margin: 20px auto;
     }
-
-    header {
-      text-align: center;
-      margin-bottom: 20px;
+    /* Modal Overlay CSS */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
     }
-
-    header img {
-      height: 100px;
-      width: auto;
-      margin-bottom: 5px;
+    .modal-content {
+      background: #fff;
+      border-radius: 8px;
+      padding: 32px 32px 24px 32px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+      min-width: 320px;
+      max-width: 90vw;
     }
-    /* Add more CSS here if needed*/
+    #contactForm input,
+    #contactForm textarea {
+      width: 100%;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+      display: block;
+    }
   </style>
-  <!-- Other <head> content like <title> and meta tags go here -->
-</head>
-  
-   </style>
 </head>
 <body>
   <header>
     <img src="Landmark Logo.png" alt="Landmark Construction Company Logo">
   </header>
-  <!-- rest of your HTML... -->
-</body>
 
   <div class="headline">
-  At Landmark Construction Company, we build relationships.
-</div>
+    At Landmark Construction Company, we build relationships.
+  </div>
   
-<div class="custom-bg-image"></div>
+  <div class="custom-bg-image"></div>
+
+  <!-- rest of your HTML... -->
+
+</body>
+</html>
   
   <section class="services">
     <div class="section-title">Our Services</div>
@@ -265,18 +233,6 @@ img {
 <section class="contact">
   <div class="section-title">Contact Us</div>
   <button id="showFormBtn" type="button">Get in Touch</button>
-  <form id="contactForm" style="display:none;">
-    <label for="name"><strong>Name:</strong></label><br>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email"><strong>Email:</strong></label><br>
-    <input type="email" id="email" name="email" required>
-
-    <label for="message"><strong>Message:</strong></label><br>
-    <textarea id="message" name="message" rows="5" required></textarea>
-
-    <button type="submit">Send</button>
-  </form>
   <p style="margin-top:15px;">
     Or call us at <strong>(650) 273-3008</strong><br>
     1300 Huntington Ave #1015<br>
@@ -284,6 +240,22 @@ img {
   </p>
 </section>
 
+    <!-- Modal Overlay for Pop-Up Form -->
+<div id="modalOverlay" class="modal-overlay" style="display:none;">
+  <div class="modal-content">
+    <form id="contactForm">
+      <label for="name"><strong>Name:</strong></label><br>
+      <input type="text" id="name" name="name" required><br><br>
+      <label for="email"><strong>Email:</strong></label><br>
+      <input type="email" id="email" name="email" required><br><br>
+      <label for="message"><strong>Message:</strong></label><br>
+      <textarea id="message" name="message" rows="5" required></textarea><br><br>
+      <button type="submit">Send</button>
+      <button type="button" id="closeModalBtn" style="margin-left:12px;">Close</button>
+    </form>
+  </div>
+</div>
+    
   <section class="licenses">
     <div class="section-title">Licenses & Credentials</div>
     <div class="badge-list">
@@ -357,11 +329,17 @@ img {
     &copy; 2025 Landmark Construction Company
   </footer>
 
-  <script>
-  document.getElementById('showFormBtn').onclick = function() {
-    document.getElementById('contactForm').style.display = 'block';
-    this.style.display = 'none';
-  };
+ <script>
+document.getElementById('showFormBtn').onclick = function() {
+  document.getElementById('modalOverlay').style.display = 'flex';
+};
+document.getElementById('closeModalBtn').onclick = function() {
+  document.getElementById('modalOverlay').style.display = 'none';
+};
+// Optional: Close the modal when clicking the overlay background
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) this.style.display = 'none';
+});
 </script>
 </body>
 </html>
