@@ -105,12 +105,29 @@ header {
       height: 60px;
       object-fit: contain;
     }
-    @media (max-width: 600px) {
-      .service-list, .project-list-images, .badge-list {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
+   @media (max-width: 600px) {
+  .service-list, .project-list-images, .badge-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  header {
+    margin-bottom: 15px;
+    padding: 10px 0;
+  }
+  
+  header img {
+    height: 80px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .custom-bg-image {
+    background-attachment: scroll;
+    height: 300px;
+    margin: 0 auto;
+  }
+}
     .contact {
       text-align: center;
     }
