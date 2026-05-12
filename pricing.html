@@ -86,8 +86,9 @@
     }
     .fee-section td, 
 .fee-section th {
-    font-size: 1.2vw; /* Shrinks as the screen gets narrower */
-    min-size: 100px;   /* Prevents it from becoming unreadable */
+   /* min 12px, scales at 1.2vw, max 18px */
+        font-size: clamp(25px, 1.2vw, 18px); 
+        word-wrap: break-word; /* Allows long words to wrap if needed */
 }
     .fee-table {
       width: 100% !important;
