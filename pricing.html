@@ -45,19 +45,34 @@
       color: #008000 !important;
       border-bottom: 2px solid #008000;
     }
-     /* Banner Style */
+     /* 1. Global Reset (Optional but recommended to fix spacing) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 2. Banner Style */
     .main-banner {
       background: #f4f4f4;
-      padding: 20px 0;
+      padding: 20px 0; /* Adjust this 20px to change the banner height */
       text-align: center;
-        font-family: 'Ink Free', sans-serif;
+      font-family: 'Ink Free', sans-serif;
     }
- .price-disclaimer {
-  font-family: Calibri, Arial, sans-serif;
-  font-weight: bold;
-  color: #222;
-  margin-top: 5px; /* Adds a little space below the heading */
-}
+
+    /* 3. Spacing Fixes */
+    .main-banner h1 {
+      margin-bottom: 0; /* Removes gap between H1 and the Disclaimer */
+    }
+    
+    .price-disclaimer {
+      font-family: Calibri, Arial, sans-serif;
+      font-weight: bold;
+      color: #222;
+      margin-top: 5px;   /* Small gap below the title */
+      margin-bottom: 0; /* REMOVES the gap at the very bottom of the banner */
+      white-space: nowrap; /* Prevents text from breaking into two lines */
+    }
      /* Fee Section Table Styles */
     .fee-section {
       max-width: 1140px;
