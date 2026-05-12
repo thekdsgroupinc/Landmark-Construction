@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Landmark Construction Company</title>
+  <title>Pricing - Landmark Construction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
   <style>
     body {
       margin: 0;
       font-family: Calibri, Arial, sans-serif;
       background: #fff;
       color: #222;
-      position: relative;
     }
-    /* Navigation Navbar */
+    /* Navigation Navbar Styles */
     .navbar {
       background: #fff;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -36,26 +37,27 @@
       color: #008000 !important;
       border-bottom: 2px solid #008000;
     }
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pricing - Landmark Construction</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- If you are using Bootstrap for that navbar, ensure the Bootstrap CSS link is here -->
+    /* Banner Style */
+    .main-banner {
+      background: #f4f4f4;
+      padding: 60px 0;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navigation Bar (Moved inside body) -->
+  <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light sticky-top">
     <div class="container-fluid">
-      <!-- Changed href to index.html#home so it goes back to the main page -->
-      <a class="navbar-brand" href="index.html#home"><img src="Landmark Logo.png" alt="Logo"></a>
+      <a class="navbar-brand" href="index.html#home">
+        <img src="Landmark Logo.png" alt="Landmark Construction Company Logo">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <!-- Update these links to point back to your main page sections -->
           <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
@@ -67,15 +69,18 @@
   </nav>
 
   <header class="main-banner">
-      <h1>Pricing Plans</h1>
+      <div class="container">
+          <h1>Pricing Plans</h1>
+      </div>
   </header>
 
-  <main>
+  <main class="container my-5">
       <h2>Affordable Construction Solutions</h2>
       <p>Details about your pricing tiers would go here.</p>
-      <a href="index.html">Back to Home</a>
+      <a href="index.html" class="btn btn-success">Back to Home</a>
   </main>
 
+  <!-- Bootstrap JS (Necessary for the mobile menu to work) -->
+  <script src="https://jsdelivr.net"></script>
 </body>
 </html>
-
