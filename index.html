@@ -407,28 +407,35 @@ header {
 
     <!-- Your existing HTML content -->
 
-    <!-- Bootstrap 5 JavaScript Bundle with Popper (Required for Mobile Menu) -->
+     <!-- Bootstrap 5 JavaScript Bundle with Popper (Required for Mobile Menu) -->
   <script src="jsdelivr.net"></script>
   
-    <script>
+  <!-- Your Custom Pop-Up Form Script -->
+  <script>
+    // Wrap inside DOMContentLoaded to prevent any script timing crashes
+    document.addEventListener('DOMContentLoaded', () => {
       const contactLink = document.getElementById('contactLink');
       const contactModal = document.getElementById('contactModal');
       const closeBtn = document.querySelector('.close-btn');
 
-contactLink.addEventListener('click', (e) => {
-  e.preventDefault(); 
-  contactModal.style.display = 'flex'; 
-});
+      // Only run the listeners if all elements exist on the page
+      if (contactLink && contactModal && closeBtn) {
+        contactLink.addEventListener('click', (e) => {
+          e.preventDefault(); 
+          contactModal.style.display = 'flex'; 
+        });
 
-      closeBtn.addEventListener('click', () => {
-        contactModal.style.display = 'none';
-      });
-
-      window.addEventListener('click', (e) => {
-        if (e.target === contactModal) {
+        closeBtn.addEventListener('click', () => {
           contactModal.style.display = 'none';
-        }
-      });
-    </script>
-  </body>
+        });
+
+        window.addEventListener('click', (e) => {
+          if (e.target === contactModal) {
+            contactModal.style.display = 'none';
+          }
+        });
+      }
+    });
+  </script>
+</body>
 </html>
