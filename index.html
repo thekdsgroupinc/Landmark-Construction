@@ -397,10 +397,10 @@ header {
       const contactModal = document.getElementById('contactModal');
       const closeBtn = document.querySelector('.close-btn');
 
-      contactLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        contactModal.style.display = 'block';
-      });
+contactLink.addEventListener('click', (e) => {
+  e.preventDefault(); 
+  contactModal.style.display = 'flex'; 
+});
 
       closeBtn.addEventListener('click', () => {
         contactModal.style.display = 'none';
