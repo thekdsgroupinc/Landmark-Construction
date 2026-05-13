@@ -156,10 +156,13 @@ header {
   width: 100vw; 
   height: 100vh;
   background: rgba(0, 0, 0, 0.4); /* Dims the page content behind the popup */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000; /* Ensures the popup sits on top of everything */
+  
+  /* CRUCIAL LAYOUT FOR CENTERING: */
+  display: flex !important;           /* Forces layout system */
+  align-items: center !important;     /* Centers vertically */
+  justify-content: center !important;  /* Centers horizontally */
+  
+  z-index: 1000;
 }
 
 /* The actual white box containing the form */
