@@ -158,9 +158,9 @@ header {
   background: rgba(0, 0, 0, 0.4); /* Dims the page content behind the popup */
   
   /* CRUCIAL LAYOUT FOR CENTERING: */
-  display: flex !important;           /* Forces layout system */
-  align-items: center !important;     /* Centers vertically */
-  justify-content: center !important;  /* Centers horizontally */
+ display: flex;           
+  align-items: center;     
+  justify-content: center;  
   
   z-index: 1000;
 }
@@ -169,14 +169,14 @@ header {
 .modal-content {
   background: #fff;
   border-radius: 8px;
-  padding: 32px 32px 24px 32px;
+  padding: 40px 32px 24px 32px; /* Increased top padding so inputs don't touch the X button */
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
   min-width: 320px;
   max-width: 90vw;
   position: relative; /* Crucial for positioning the X button */
 }
 
-    /* Form input spacing */
+   /* Form input spacing */
 #contactForm input,
 #contactForm textarea {
   width: 100%;
@@ -191,13 +191,14 @@ header {
   position: absolute;
   right: 16px;
   top: 12px;
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
   color: #333;
   line-height: 1;
+  z-index: 1010; /* Keeps the X clickable and on top of inputs */
 }
 .close-btn:hover {
-  color: #000;
+  color: #ff0000; /* Turns red on hover so you know it's interactive */
 }
     /* Carousel image styling */ .carousel-img { width: 100%; height: 240px; object-fit: cover; }
   </style>
