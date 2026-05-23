@@ -450,12 +450,17 @@ header {
       if (contactModal) {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('openContact') === 'true') {
-          contactModal.classList.add('is-open'); // Smooth fade-in on page load
+          
+          // FIXED: Tiny delay gives the browser time to render before fading in
+          setTimeout(() => {
+            contactModal.classList.add('is-open'); 
+          }, 100); // 100 milliseconds delay
           
           // Cleans up the URL bar beautifully
           window.history.replaceState({}, document.title, window.location.pathname);
         }
       }
+
     });
   </script>
 </body>
