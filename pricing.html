@@ -5,15 +5,15 @@
   <title>Pricing - Landmark Construction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- 1. CORRECT Cloudflare CDN Link for Bootstrap -->
+  <!-- 1. Load Bootstrap framework first -->
   <link rel="stylesheet" href="https://cloudflare.com">
   
-  <!-- === FIXED FONT LOOKUP BELOW === -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
-  <!-- === FIXED FONT LOOKUP ABOVE === -->
+  <!-- 2. Load the Kalam Font from the correct server -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
 
+  <!-- 3. Your custom styles are placed last so they override Bootstrap and restore your layout -->
   <style>
     body {
       margin: 0;
@@ -21,59 +21,63 @@
       background: #fff;
       color: #222;
       position: relative;
-      
-        /* FIXED: Changing these properties ensures your page cannot freeze white */
       opacity: 1 !important;        
       transition: none !important;  
     }
     
-    /* === ADDED TO REVEAL THE PAGE COMPONENT === */
     body.page-loaded {
       opacity: 1;
     }
-        .section-title {
-      font-family: 'Ink Free', sans-serif;
+
+    .section-title {
+      font-family: 'Kalam', cursive, sans-serif;
       font-size: 2em;
       margin-bottom: 20px;
       color: #222;
       text-align: center;
     }    
+
     /* Navigation Navbar Styles */
     .navbar {
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      padding: 8px 0;
+      background: #fff !important;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+      padding: 8px 0 !important;
     }
+    
     .navbar-brand img {
-      height: 50px;
-      width: auto;
+      height: 50px !important;
+      width: auto !important;
     }
+    
     .nav-link {
       color: #222 !important;
-      margin: 0 8px;
-      font-weight: 500;
-      transition: color 0.3s;
+      margin: 0 8px !important;
+      font-weight: 500 !important;
+      transition: color 0.3s !important;
     }
+    
     .nav-link:hover {
       color: #008000 !important;
     }
+    
     .nav-link.active {
       color: #008000 !important;
-      border-bottom: 2px solid #008000;
+      border-bottom: 2px solid #008000 !important;
     }
-     /* 1. Global Reset (Optional but recommended to fix spacing) */
+
+    /* Global Reset positioned to safely apply layout structure constraints */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* 2. Banner Style */
+    /* Banner Style */
     .main-banner {
-      background: #f4f4f4;
-      padding: 20px 0; /* Adjust this 20px to change the banner height */
-      text-align: center;
-      font-family: 'Ink Free', sans-serif;
+      background: #f4f4f4 !important;
+      padding: 20px 0 !important; 
+      text-align: center !important;
+      font-family: 'Kalam', cursive, sans-serif !important;
     }
 
     /* 3. Spacing Fixes */
