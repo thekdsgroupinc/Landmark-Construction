@@ -242,15 +242,40 @@
 </div>
 </section>
 
-    <!-- 5. Navigation Button -->
+       <!-- 5. Navigation Button -->
     <div class="mt-5">
       <a href="index.html" class="btn btn-success">Back to Home</a>
     </div>
   </main>
 </body>
 
-
   <!-- Bootstrap JS (Necessary for the mobile menu to work) -->
   <script src="https://jsdelivr.net"></script>
+
+  <!-- === INSERTED JAVASCRIPT TRANSITION BELOW === -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Smoothly fade the entire about page in on load
+      document.body.classList.add('page-loaded');
+
+      // 2. Intercept link clicks to fade the page out before switching back to home
+      const links = document.querySelectorAll('a:not([href^="#"]):not([target="_blank"])');
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetUrl = link.href;
+
+          // Smoothly fade the whole page out
+          document.body.style.opacity = '0';
+
+          // Wait for the fade-out animation to finish, then redirect
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 400); 
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+
