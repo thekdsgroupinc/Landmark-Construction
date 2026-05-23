@@ -5,45 +5,52 @@
   <title>Pricing - Landmark Construction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- 1. CORRECT Cloudflare CDN Link for Bootstrap -->
+  <!-- 1. Cloudflare CDN (Bypasses the jsDelivr network failure) -->
   <link rel="stylesheet" href="https://cloudflare.com">
   
-  <!-- 2. CORRECT Google Fonts Link with "fonts." subdomains -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+  <!-- 2. Fixed Google Fonts Integration -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 
-  <!-- 3. Your Custom Styles Overriding Bootstrap -->
+  <!-- 3. High-Specificity Navigation Styles (Locked against Bootstrap overrides) -->
   <style>
-    /* Navigation Navbar Styles */
-    .navbar {
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      padding: 8px 0;
-    }
-    .navbar-brand img {
-      height: 50px;
-      width: auto;
-    }
-    .nav-link {
-      color: #222 !important;
-      margin: 0 8px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    .nav-link:hover {
-      color: #008000 !important;
-    }
-    .nav-link.active {
-      color: #008000 !important;
-      border-bottom: 2px solid #008000;
-    }
-    
-    /* Global Reset */
+    /* Global Reset - scoped to avoid crashing layout boxes */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    /* Isolated Parent Wrapper ensures custom styles override Bootstrap */
+    #landmark-nav-layer .navbar {
+      background: #ffffff !important;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+      padding: 8px 0 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    
+    #landmark-nav-layer .navbar-brand img {
+      height: 50px !important;
+      width: auto !important;
+    }
+    
+    #landmark-nav-layer .nav-link {
+      color: #222222 !important;
+      margin: 0 8px !important;
+      font-weight: 500 !important;
+      text-decoration: none !important;
+      transition: color 0.3s !important;
+    }
+    
+    #landmark-nav-layer .nav-link:hover {
+      color: #008000 !important;
+    }
+    
+    #landmark-nav-layer .nav-link.active {
+      color: #008000 !important;
+      border-bottom: 2px solid #008000 !important;
     }
 
     /* Banner Style */
