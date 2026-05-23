@@ -446,15 +446,21 @@ header {
         });
       }
 
-      // 2. Redirect checker (runs independently as long as the modal exists)
+           // 2. Redirect checker (runs independently as long as the modal exists)
       if (contactModal) {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('openContact') === 'true') {
           
-          // FIXED: Tiny delay gives the browser time to render before fading in
+          // 1. Prepare states: Make sure visibility is turned on right away
+          contactModal.style.visibility = 'visible';
+          contactModal.style.opacity = '0';
+          
+          // 2. Wait for the browser to register the hidden baseline, then fade in
           setTimeout(() => {
+            contactModal.style.transition = 'opacity 0.4s ease';
+            contactModal.style.opacity = '1';
             contactModal.classList.add('is-open'); 
-          }, 100); // 100 milliseconds delay
+          }, 50); 
           
           // Cleans up the URL bar beautifully
           window.history.replaceState({}, document.title, window.location.pathname);
