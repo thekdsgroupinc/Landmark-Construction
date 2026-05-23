@@ -424,23 +424,24 @@ header {
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const contactLink = document.getElementById('contactLink');
-      const contactModal = document.getElementById('contactModal');
+      // FIXED: Targets the '.modal-overlay' class to match your CSS configuration
+      const contactModal = document.querySelector('.modal-overlay');
       const closeBtn = document.querySelector('.close-btn');
 
       // 1. Regular click logic (only runs if the link and close button exist on this page)
       if (contactLink && contactModal && closeBtn) {
         contactLink.addEventListener('click', (e) => {
           e.preventDefault(); 
-          contactModal.style.display = 'flex'; 
+          contactModal.classList.add('is-open'); // Smooth fade-in
         });
 
         closeBtn.addEventListener('click', () => {
-          contactModal.style.display = 'none';
+          contactModal.classList.remove('is-open'); // Smooth fade-out
         });
 
         window.addEventListener('click', (e) => {
           if (e.target === contactModal) {
-            contactModal.style.display = 'none';
+            contactModal.classList.remove('is-open'); // Smooth fade-out
           }
         });
       }
@@ -449,7 +450,7 @@ header {
       if (contactModal) {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('openContact') === 'true') {
-          contactModal.style.display = 'flex'; 
+          contactModal.classList.add('is-open'); // Smooth fade-in on page load
           
           // Cleans up the URL bar beautifully
           window.history.replaceState({}, document.title, window.location.pathname);
@@ -459,4 +460,5 @@ header {
   </script>
 </body>
 </html>
+
 
