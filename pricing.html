@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,42 +6,16 @@
   <title>Pricing - Landmark Construction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- 1. Load the new Cloudflare CDN Framework first so it cannot override your styles -->
+  <!-- 1. CORRECT Cloudflare CDN Link for Bootstrap -->
   <link rel="stylesheet" href="https://cloudflare.com">
   
-  <!-- 2. Fixed Google Fonts Lookups -->
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+  <!-- 2. CORRECT Google Fonts Link with "fonts." subdomains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 
-  <!-- 3. YOUR LOCAL STYLES MUST GO HERE TO PROTECT YOUR NAVIGATION -->
-  <link rel="stylesheet" href="/style.css"> 
-  <!-- Note: If your stylesheet is named something else (like main.css or navbar.css), change the name above! -->
-
+  <!-- 3. Your Custom Styles Overriding Bootstrap -->
   <style>
-    body {
-      margin: 0;
-      font-family: Calibri, Arial, sans-serif;
-      background: #fff;
-      color: #222;
-      position: relative;
-      
-        /* FIXED: Changing these properties ensures your page cannot freeze white */
-      opacity: 1 !important;        
-      transition: none !important;  
-    }
-    
-    /* === ADDED TO REVEAL THE PAGE COMPONENT === */
-    body.page-loaded {
-      opacity: 1;
-    }
-        .section-title {
-      font-family: 'Ink Free', sans-serif;
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #222;
-      text-align: center;
-    }    
     /* Navigation Navbar Styles */
     .navbar {
       background: #fff;
@@ -64,17 +39,18 @@
       color: #008000 !important;
       border-bottom: 2px solid #008000;
     }
-     /* 1. Global Reset (Optional but recommended to fix spacing) */
+    
+    /* Global Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* 2. Banner Style */
+    /* Banner Style */
     .main-banner {
       background: #f4f4f4;
-      padding: 20px 0; /* Adjust this 20px to change the banner height */
+      padding: 20px 0;
       text-align: center;
       font-family: 'Ink Free', sans-serif;
     }
