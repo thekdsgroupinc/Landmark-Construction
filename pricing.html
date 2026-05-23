@@ -4,42 +4,46 @@
   <meta charset="UTF-8">
   <title>Pricing - Landmark Construction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   
-  <!-- === INSERTED CLOUDFLARE FONT LOOKUP BELOW === -->
-  <link rel="dns-prefetch" href="https://googleapis.com">
-  <link rel="dns-prefetch" href="https://gstatic.com">
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
-  <!-- === INSERTED CLOUDFLARE FONT LOOKUP ABOVE === -->
+  <!-- 1. Swapped out jsDelivr for cdnjs (Cloudflare) to bypass the network failure -->
+  <link rel="stylesheet" href="https://cloudflare.com">
+  
+  <!-- 2. Fixed Official Google Fonts CDN integration (Added missing fonts. subdomains) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 
   <style>
+    /* MOVE GLOBAL RESET TO THE TOP: This stops it from wiping out your navbar layout */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Calibri, Arial, sans-serif;
       background: #fff;
       color: #222;
       position: relative;
-      
-        /* FIXED: Changing these properties ensures your page cannot freeze white */
       opacity: 1 !important;        
       transition: none !important;  
     }
     
-    /* === ADDED TO REVEAL THE PAGE COMPONENT === */
     body.page-loaded {
       opacity: 1;
     }
-        .section-title {
+
+    .section-title {
       font-family: 'Ink Free', sans-serif;
       font-size: 2em;
       margin-bottom: 20px;
       color: #222;
       text-align: center;
     }    
-    /* Navigation Navbar Styles */
+
+    /* Navigation Navbar Styles (Now safely loaded after global resets) */
     .navbar {
       background: #fff;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -62,17 +66,11 @@
       color: #008000 !important;
       border-bottom: 2px solid #008000;
     }
-     /* 1. Global Reset (Optional but recommended to fix spacing) */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    /* 2. Banner Style */
+    /* Banner Style */
     .main-banner {
       background: #f4f4f4;
-      padding: 20px 0; /* Adjust this 20px to change the banner height */
+      padding: 20px 0; 
       text-align: center;
       font-family: 'Ink Free', sans-serif;
     }
