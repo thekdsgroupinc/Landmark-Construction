@@ -510,20 +510,27 @@
   <!-- FIXED: Changed the broken link to the full, official working Bootstrap path -->
   <script src="https://jsdelivr.net"></script>
 
-  <!-- === INSERTED JAVASCRIPT TRANSITION BELOW === -->
+<!-- === INSERTED JAVASCRIPT TRANSITION BELOW === -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Smoothly fade the entire about page in on load
+      // 1. Instantly reveals the pricing page elements once loaded
       document.body.classList.add('page-loaded');
 
-      // 2. Intercept link clicks to fade the page out before switching back to home
-      const links = document.querySelectorAll('a:not([href^="#"]):not([target="_blank"])');
+      // 2. Intercept link clicks safely so the page doesn't get stuck on menus/popups
+      const links = document.querySelectorAll('a:not([target="_blank"])');
       links.forEach(link => {
         link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+
+          // SAFETY CHECK: Skip fade-out if the link is empty or an anchor trigger on this page
+          if (!href || href === '#' || href.startsWith('#') || href.startsWith('javascript:')) {
+            return; 
+          }
+
           e.preventDefault();
           const targetUrl = link.href;
 
-          // Smoothly fade the whole page out
+          // Smoothly fade the whole page out before leaving
           document.body.style.opacity = '0';
 
           // Wait for the fade-out animation to finish, then redirect
@@ -533,6 +540,6 @@
         });
       });
     });
-</script>
+  </script>
 </body>
 </html>
