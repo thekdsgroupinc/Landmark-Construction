@@ -5,16 +5,17 @@
   <title>Pricing - Landmark Construction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- 1. Swapped out jsDelivr for cdnjs (Cloudflare) at the very top -->
+  <!-- 1. Load the new Cloudflare CDN Framework first so it cannot override your styles -->
   <link rel="stylesheet" href="https://cloudflare.com">
   
-  <!-- 2. Fixed Official Google Fonts CDN integration (Added missing fonts. subdomains) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+  <!-- 2. Fixed Google Fonts Lookups -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 
-  <!-- 3. PASTE YOUR NAVIGATION STYLES OR CUSTOM LINK DIRECTLY BELOW THIS LINE -->
-  <!-- Any custom CSS placed here will successfully override Bootstrap and fix your menu -->
+  <!-- 3. YOUR LOCAL STYLES MUST GO HERE TO PROTECT YOUR NAVIGATION -->
+  <link rel="stylesheet" href="/style.css"> 
+  <!-- Note: If your stylesheet is named something else (like main.css or navbar.css), change the name above! -->
 
   <style>
     body {
