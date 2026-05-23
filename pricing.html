@@ -4,45 +4,41 @@
   <meta charset="UTF-8">
   <title>Pricing - Landmark Construction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   
-  <!-- 1. Cloudflare Bootstrap CSS (Handles the layout & shapes) -->
-  <link rel="stylesheet" href="https://cloudflare.com">
-  
-  <!-- 2. Fixed Google Fonts Integration -->
+  <!-- === INSERTED CLOUDFLARE FONT LOOKUP BELOW === -->
+  <link rel="dns-prefetch" href="https://googleapis.com">
+  <link rel="dns-prefetch" href="https://gstatic.com">
   <link rel="preconnect" href="https://googleapis.com">
   <link rel="preconnect" href="https://gstatic.com" crossorigin>
   <link href="https://googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+  <!-- === INSERTED CLOUDFLARE FONT LOOKUP ABOVE === -->
 
   <style>
-    /* Global Reset at the top keeps your custom navbar padding intact */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: Calibri, Arial, sans-serif;
       background: #fff;
       color: #222;
       position: relative;
+      
+        /* FIXED: Changing these properties ensures your page cannot freeze white */
       opacity: 1 !important;        
       transition: none !important;  
     }
     
+    /* === ADDED TO REVEAL THE PAGE COMPONENT === */
     body.page-loaded {
       opacity: 1;
     }
-
-    .section-title {
+        .section-title {
       font-family: 'Ink Free', sans-serif;
       font-size: 2em;
       margin-bottom: 20px;
       color: #222;
       text-align: center;
     }    
-
     /* Navigation Navbar Styles */
     .navbar {
       background: #fff;
@@ -66,11 +62,17 @@
       color: #008000 !important;
       border-bottom: 2px solid #008000;
     }
+     /* 1. Global Reset (Optional but recommended to fix spacing) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    /* Banner Style */
+    /* 2. Banner Style */
     .main-banner {
       background: #f4f4f4;
-      padding: 20px 0; 
+      padding: 20px 0; /* Adjust this 20px to change the banner height */
       text-align: center;
       font-family: 'Ink Free', sans-serif;
     }
@@ -510,9 +512,14 @@
       <a href="index.html" class="btn btn-success">Back to Home</a>
     </div>
   </main>
+</body>
 
-  <!-- Cloudflare Bootstrap JS (Handles mobile navigation toggles & scripts) -->
-  <script src="https://cloudflare.com"></script>
+     <!-- Bootstrap JS: Main loader from jsDelivr -->
+  <!-- FALLBACK: If jsDelivr fails on your network, it instantly switches to Cloudflare so your mobile menu doesn't break -->
+  <script 
+    src="https://jsdelivr.net" 
+    onerror="this.onerror=null; this.src='https://cloudflare.com';">
+  </script>
 
   <!-- === REINFORCED JAVASCRIPT BELOW === -->
   <script>
