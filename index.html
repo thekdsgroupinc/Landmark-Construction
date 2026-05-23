@@ -146,7 +146,7 @@ header {
       background-attachment: fixed;
       margin: 0 auto;
     }
-   /* Full screen dark/translucent background overlay */
+/* Full screen dark/translucent background overlay */
 .modal-overlay {
   position: fixed;
   top: 0; 
@@ -158,13 +158,23 @@ header {
   background: rgba(0, 0, 0, 0.4); /* Dims the page content behind the popup */
   
   /* CRUCIAL LAYOUT FOR CENTERING: */
- display: flex;           
+  display: flex;           
   align-items: center;     
   justify-content: center;  
   
   z-index: 1000;
+
+  /* === ADDED FOR FADE ANIMATION === */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
+/* === ADDED TO TRIGGER FADE IN === */
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
 /* The actual white box containing the form */
 .modal-content {
   background: #fff;
