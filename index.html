@@ -412,13 +412,12 @@ header {
   
   <!-- Your Custom Pop-Up Form Script -->
   <script>
-    // Wrap inside DOMContentLoaded to prevent any script timing crashes
     document.addEventListener('DOMContentLoaded', () => {
       const contactLink = document.getElementById('contactLink');
       const contactModal = document.getElementById('contactModal');
       const closeBtn = document.querySelector('.close-btn');
 
-      // Only run the listeners if all elements exist on the page
+      // 1. Regular click logic (only runs if the link and close button exist on this page)
       if (contactLink && contactModal && closeBtn) {
         contactLink.addEventListener('click', (e) => {
           e.preventDefault(); 
@@ -436,27 +435,18 @@ header {
         });
       }
 
-      // ... (Your existing close-btn and window click events end here)
-        window.addEventListener('click', (e) => {
-          if (e.target === contactModal) {
-            contactModal.style.display = 'none';
-          }
-        });
-      } // <--- THIS IS THE CLOSING BRACE OF YOUR "IF" LINK CHECK
-
-     // === INSERTED REDIRECT CHECKER BELOW ===
-      // This runs even if contactLink isn't present, as long as the modal exists
+      // 2. Redirect checker (runs independently as long as the modal exists)
       if (contactModal) {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('openContact') === 'true') {
-          contactModal.style.display = 'flex'; // Opens pop-up immediately on page load
+          contactModal.style.display = 'flex'; 
           
-          // Cleans up the URL bar so "?openContact=true" disappears beautifully
+          // Cleans up the URL bar beautifully
           window.history.replaceState({}, document.title, window.location.pathname);
         }
       }
-      // === INSERTED REDIRECT CHECKER ABOVE ===
     });
   </script>
 </body>
 </html>
+
