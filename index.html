@@ -420,57 +420,54 @@ header {
      <!-- Bootstrap 5 JavaScript Bundle with Popper (Required for Mobile Menu) -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   
-  <!-- Your Custom Pop-Up Form Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const contactLink = document.getElementById('contactLink');
-      // FIXED: Targets the '.modal-overlay' class to match your CSS configuration
-      const contactModal = document.querySelector('.modal-overlay');
-      const closeBtn = document.querySelector('.close-btn');
+<!-- Your Custom Pop-Up Form Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactLink = document.getElementById('contactLink');
+    const contactModal = document.querySelector('.modal-overlay');
+    const closeBtn = document.querySelector('.close-btn');
 
-      // 1. Regular click logic (only runs if the link and close button exist on this page)
-      if (contactLink && contactModal && closeBtn) {
-        contactLink.addEventListener('click', (e) => {
-          e.preventDefault(); 
-          contactModal.classList.add('is-open'); // Smooth fade-in
-        });
+    // 1. Core Event Listeners (Always active if modal and close button exist)
+    if (contactModal && closeBtn) {
+      // Close button action
+      closeBtn.addEventListener('click', () => {
+        contactModal.classList.remove('is-open'); 
+      });
 
-        closeBtn.addEventListener('click', () => {
-          contactModal.classList.remove('is-open'); // Smooth fade-out
-        });
-
-        window.addEventListener('click', (e) => {
-          if (e.target === contactModal) {
-            contactModal.classList.remove('is-open'); // Smooth fade-out
-          }
-        });
-      }
-
-                // 2. Redirect checker (runs independently as long as the modal exists)
-      if (contactModal) {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('openContact') === 'true') {
-          
-          // 1. Instantly force layout engine behavior to block clicks behind it
-          contactModal.style.display = 'flex';
-          contactModal.style.visibility = 'visible';
-          contactModal.style.opacity = '0';
-          
-          // 2. Wait 150ms for the page rendering engine to settle completely
-          setTimeout(() => {
-            // 3. Apply the transition rules and fade smoothly
-            contactModal.style.transition = 'opacity 0.5s ease-out';
-            contactModal.classList.add('is-open');
-            contactModal.style.opacity = '1';
-          }, 150); 
-          
-          // Cleans up the URL bar beautifully
-          window.history.replaceState({}, document.title, window.location.pathname);
+      // Clicking outside the white box action
+      window.addEventListener('click', (e) => {
+        if (e.target === contactModal) {
+          contactModal.classList.remove('is-open'); 
         }
-      }
+      });
+    }
 
-    });
-  </script>
+    // 2. Regular Link Click (If the button exists on this specific page)
+    if (contactLink && contactModal) {
+      contactLink.addEventListener('click', (e) => {
+        e.preventDefault(); 
+        contactModal.classList.add('is-open'); 
+      });
+    }
+
+    // 3. Cross-Page Redirect Checker (Runs smoothly on page landing)
+    if (contactModal) {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('openContact') === 'true') {
+        
+        // Staggered delay allows index page rendering engine to settle
+        setTimeout(() => {
+          requestAnimationFrame(() => {
+            contactModal.classList.add('is-open'); 
+          });
+        }, 200); 
+
+        // Cleans up the URL bar beautifully
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }
+  }); // End of DOMContentLoaded
+</script>
 </body>
 </html>
 
