@@ -116,6 +116,16 @@
     .extra-fees .list-unstyled strong {
   font-weight: normal; /* normal weight text for extra service price */
 }
+   /* === ADDED FOR SMOOTH PAGE TRANSITIONS === */
+    body {
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+    body.page-loaded {
+      opacity: 1;
+    }
+    /* ========================================= */  
+    
   </style>
 </head>
   <body>
