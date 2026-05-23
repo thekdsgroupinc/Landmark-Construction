@@ -435,7 +435,15 @@ header {
           }
         });
       }
-  
+
+      // ... (Your existing close-btn and window click events end here)
+        window.addEventListener('click', (e) => {
+          if (e.target === contactModal) {
+            contactModal.style.display = 'none';
+          }
+        });
+      } // <--- THIS IS THE CLOSING BRACE OF YOUR "IF" LINK CHECK
+
      // === INSERTED REDIRECT CHECKER BELOW ===
       // This runs even if contactLink isn't present, as long as the modal exists
       if (contactModal) {
