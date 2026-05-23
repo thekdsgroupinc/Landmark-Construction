@@ -482,13 +482,34 @@ header {
           });
         }, 200); 
 
-        // Cleans up the URL bar beautifully
+               // Cleans up the URL bar beautifully
         window.history.replaceState({}, document.title, window.location.pathname);
       }
     }
+
+    // === INSERTED PAGE TRANSITION JAVASCRIPT BELOW ===
+    // 1. Smoothly fade the entire page in as soon as the HTML elements render
+    document.body.classList.add('page-loaded');
+
+    // 2. Intercept link clicks to fade the page out before switching URLs
+    const links = document.querySelectorAll('a:not([href^="#"]):not([target="_blank"])');
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetUrl = link.href;
+
+        // Smoothly fade the whole page out
+        document.body.style.opacity = '0';
+
+        // Wait for the fade-out animation to finish, then redirect
+        setTimeout(() => {
+          window.location.href = targetUrl;
+        }, 400); // Matches the 0.4s CSS transition time
+      });
+    });
+    // === INSERTED PAGE TRANSITION JAVASCRIPT ABOVE ===
+
   }); // End of DOMContentLoaded
 </script>
 </body>
 </html>
-
-
