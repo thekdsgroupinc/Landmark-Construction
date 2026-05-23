@@ -435,6 +435,19 @@ header {
           }
         });
       }
+  
+     // === INSERTED REDIRECT CHECKER BELOW ===
+      // This runs even if contactLink isn't present, as long as the modal exists
+      if (contactModal) {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('openContact') === 'true') {
+          contactModal.style.display = 'flex'; // Opens pop-up immediately on page load
+          
+          // Cleans up the URL bar so "?openContact=true" disappears beautifully
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }
+      }
+      // === INSERTED REDIRECT CHECKER ABOVE ===
     });
   </script>
 </body>
