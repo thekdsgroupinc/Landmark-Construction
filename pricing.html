@@ -248,46 +248,45 @@
       <a href="index.html" class="btn btn-success">Back to Home</a>
     </div>
 
-    <!-- 6. Centered Square Payment Embed -->
-    <div class="mt-4 d-flex justify-content-center">
-      <div>
-        <div style="
-        overflow: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        width: 259px;
-        background: #FFFFFF;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        font-family: SQ Market, SQ Market, Helvetica, Arial, sans-serif;
-        ">
-          <div style="padding: 20px;">
-            <a id="embedded-checkout-modal-checkout-button" target="_blank" data-url="https://square.link/u/cO7MZN5C?src=embd" href="https://square.link/u/cO7MZN5C?src=embed" style="
-            display: inline-block;
-            font-size: 18px;
-            line-height: 48px;
-            height: 48px;
-            color: #ffffff;
-            min-width: 212px;
-            background-color: #006aff;
-            text-align: center;
-            border-radius: 0px;
-          ">Pay now</a>
-          </div>
-        </div>
-
-        <script>
-          // Standard Square embedded checkout handler
-          document.getElementById('embedded-checkout-modal-checkout-button').addEventListener('click', function (e) {
-            e.preventDefault();
-            const url = this.getAttribute('data-url');
-            window.open(url, 'Square Payment', 'scrollbars=yes,width=500,height=600');
-          });
-        </script>
-      </div>
+   <!-- Centered Payment Link Matched to Webpage Styles -->
+<div class="mt-3 text-center">
+  <div style="
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    font-family: Calibri, Arial, sans-serif;
+  ">
+    <div style="padding: 10px;">
+      <a target="_blank" data-url="https://square.link" href="https://square.link" style="
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 40px;
+        height: 40px;
+        color: #ffffff;
+        min-width: 212px;
+        background-color: #008000;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background-color 0.3s;
+      " onmouseover="this.style.backgroundColor='#006400'" onmouseout="this.style.backgroundColor='#008000'">Pay now</a>
     </div>
+  </div>
+
+  <script>
+    // Handles opening the payment link in a centered pop-up window
+    document.querySelector('[data-url]').addEventListener('click', function (e) {
+      e.preventDefault();
+      const url = this.getAttribute('data-url');
+      const w = 500, h = 600;
+      const left = (screen.width/2) - (w/2);
+      const top = (screen.height/2) - (h/2);
+      window.open(url, 'Square Payment', `scrollbars=yes, width=${w}, height=${h}, top=${top}, left=${left}`);
+    });
+  </script>
+</div>
   </main>
 
 
