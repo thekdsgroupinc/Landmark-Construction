@@ -527,14 +527,16 @@ header {
         };
 
         try {
-          // !!! REPLACE THIS URL WITH YOUR LIVE CLOUDFLARE WORKER URL !!!
-          const response = await fetch('https://YOUR_WORKER_SUBDOMAIN.workers.dev', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-          });
+// Check this block inside your website HTML code:
+const response = await fetch('https://YOUR_WORKER_SUBDOMAIN.workers.dev', {
+  method: 'POST',  // <-- Make sure this line is exactly here and uppercase
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body: JSON.stringify(formData)
+});
+
 
           if (response.ok) {
             alert('Success! Your message was sent straight to our inbox.');
