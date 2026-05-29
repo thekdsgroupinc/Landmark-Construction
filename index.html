@@ -528,7 +528,8 @@ header {
 
         try {
           // 1. Make sure your live worker URL is pasted here inside single quotes:
-          const response = await fetch('https://formspree.io/f/meednvwn, {
+          const response = await fetch('https://formspree.io/f/meednvwn', {
+
             method: 'POST', // <-- CRITICAL: Make sure this is exactly POST in uppercase
             headers: {
               'Content-Type': 'application/json',
