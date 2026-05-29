@@ -527,15 +527,15 @@ header {
         };
 
         try {
-// Check this block inside your website HTML code:
-const response = await fetch('https://YOUR_WORKER_SUBDOMAIN.workers.dev', {
-  method: 'POST',  // <-- Make sure this line is exactly here and uppercase
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  },
-  body: JSON.stringify(formData)
-});
+          // 1. Make sure your live worker URL is pasted here inside single quotes:
+          const response = await fetch('https://workers.dev', {
+            method: 'POST', // <-- CRITICAL: Make sure this is exactly POST in uppercase
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          });
 
 
           if (response.ok) {
