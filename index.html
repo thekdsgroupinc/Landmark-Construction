@@ -459,6 +459,9 @@ header {
       window.addEventListener('click', (e) => {
         if (e.target === contactModal) {
           contactModal.classList.remove('is-open'); 
+
+               // 👇 ADD THIS LINE TO CLOSE THE NAV BAR 👇
+        document.getElementById('YOUR_NAV_BAR_ID').classList.remove('YOUR_NAV_OPEN_CLASS');
         }
       });
     }
