@@ -502,8 +502,15 @@ header {
  // 4. Smoothly scroll to inner section titles and auto-close the Bootstrap mobile menu
     document.querySelectorAll('.navbar-nav .nav-link:not(#contactLink)').forEach(link => {
       link.addEventListener('click', (e) => {
-        const targetId = link.getAttribute('href');
-        if (!targetId || !targetId.startsWith('#')) return;
+        let targetId = link.getAttribute('href');
+        if (!targetId) return;
+
+        // If the link includes 'index.html#', strip out the page name on the fly
+        if (targetId.includes('index.html#')) {
+          targetId = targetId.substring(targetId.indexOf('#'));
+        }
+
+        if (!targetId.startsWith('#')) return;
 
         const targetSection = document.querySelector(targetId);
         const navbar = document.querySelector('.navbar');
@@ -538,6 +545,32 @@ header {
         }
       });
     });
+
+// FIX FOR CROSS-PAGE ARRIVALS: Runs when arriving from pricing.html
+window.addEventListener('load', () => {
+  if (window.location.hash) {
+    const targetSection = document.querySelector(window.location.hash);
+    const navbar = document.querySelector('.navbar');
+
+    if (targetSection && navbar) {
+      const innerTitle = targetSection.querySelector('.section-title, .pricing-title, h2, h3');
+      const elementToScrollTo = innerTitle ? innerTitle : targetSection;
+
+      const navHeight = navbar.offsetHeight;
+      const targetPosition = elementToScrollTo.getBoundingClientRect().top + window.scrollY;
+      const extraBreathingRoom = 25; 
+
+      // Timeout forces the browser to wait until it finishes its native jump, then fixes it
+      setTimeout(() => {
+        window.scrollTo({
+          top: targetPosition - navHeight - extraBreathingRoom,
+          behavior: 'smooth'
+        });
+      }, 100);
+    }
+  }
+});
+
     
     // === INSERTED PAGE TRANSITION JAVASCRIPT BELOW ===
     // 1. Smoothly fade the entire page in as soon as the HTML elements render
