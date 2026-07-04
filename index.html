@@ -583,7 +583,7 @@ header {
           } else {
             alert('Error: Failed to process form submission backend.');
           }
-        } catch (error) {
+                } catch (error) {
           alert('Network error. Check connection or backend settings.');
         } finally {
           button.disabled = false;
@@ -591,30 +591,28 @@ header {
         }
       });
     }
-// ========================================================
+    // ========================================================
     // === CLOUDFLARE WORKER FORM SUBMISSION CODE END =========
     // ========================================================
 
-    // Auto-close BOTH the contact form modal and the mobile menu when any link is clicked
-    document.querySelectorAll('.nav-links a, .nav-menu a, #nav-menu a, header a, nav a').forEach(link => {
-      link.addEventListener('click', () => {
+    // Safe link checker to close the contact modal and menu
+    document.addEventListener('click', (e) => {
+      // Check if the clicked item is a link inside a nav or header
+      if (e.target.closest('nav a, header a, .nav-links a, .nav-menu a')) {
         
-        // 1. FORCE THE CONTACT FORM MODAL TO CLOSE 👇
-        if (typeof contactModal !== 'undefined' && contactModal) {
-          contactModal.classList.remove('is-open');
-        } else {
-          // Backup check in case the variable isn't globally available here
-          const modal = document.getElementById('contactModal');
-          if (modal) modal.classList.remove('is-open');
+        // 1. Safely close the modal form
+        const modal = document.getElementById('contactModal');
+        if (modal) {
+          modal.classList.remove('is-open');
         }
 
-        // 2. Also close the mobile navigation menu menu
+        // 2. Safely close the mobile menu
         const mobileMenu = document.querySelector('.nav-links, .nav-menu, #mobile-menu, #nav-menu');
         const hamburgerBtn = document.querySelector('.hamburger, .menu-toggle, #hamburger, .nav-toggle');
         
         if (mobileMenu) mobileMenu.classList.remove('open', 'active', 'is-open', 'show');
         if (hamburgerBtn) hamburgerBtn.classList.remove('open', 'active', 'is-open', 'show');
-      });
+      }
     });
 
   }); // End of DOMContentLoaded
