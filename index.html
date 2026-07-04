@@ -469,8 +469,12 @@ header {
         e.preventDefault(); 
         contactModal.classList.add('is-open'); 
 
-                     // 👇 ADD THIS LINE TO CLOSE THE NAV BAR 👇
-        document.getElementById('YOUR_NAV_BAR_ID').classList.remove('YOUR_NAV_OPEN_CLASS');
+       // 👇 ADD THESE LINES TO FORCE THE MOBILE MENU TO CLOSE 👇
+        const mobileMenu = document.querySelector('.nav-links, .nav-menu, #mobile-menu, #nav-menu');
+        const hamburgerBtn = document.querySelector('.hamburger, .menu-toggle, #hamburger');
+        
+        if (mobileMenu) mobileMenu.classList.remove('open', 'active', 'is-open', 'show');
+        if (hamburgerBtn) hamburgerBtn.classList.remove('open', 'active', 'is-open', 'show');
       });
     }
 
