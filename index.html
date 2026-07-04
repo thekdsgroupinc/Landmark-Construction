@@ -512,13 +512,13 @@ header {
           e.preventDefault(); 
 
           // Look for the specific inner title element inside your section box
-          const innerTitle = targetSection.querySelector('.section-title');
+          const innerTitle = targetSection.querySelector('.section-title, .pricing-title, h2, h3');
           const elementToScrollTo = innerTitle ? innerTitle : targetSection;
 
           // Calculate navbar height and elements coordinates
           const navHeight = navbar.offsetHeight;
           const targetPosition = elementToScrollTo.getBoundingClientRect().top + window.scrollY;
-          const extraBreathingRoom = 15; 
+          const extraBreathingRoom = 15; // Increased to keep the title completely visible
 
           window.scrollTo({
             top: targetPosition - navHeight - extraBreathingRoom,
