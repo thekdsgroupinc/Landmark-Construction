@@ -595,8 +595,17 @@ header {
     // === CLOUDFLARE WORKER FORM SUBMISSION CODE END =========
     // ========================================================
 
+ // Auto-close mobile navigation menu when any link inside it is clicked
+    document.querySelectorAll('.nav-links a, .nav-menu a, #nav-menu a, header a').forEach(link => {
+      link.addEventListener('click', () => {
+        const mobileMenu = document.querySelector('.nav-links, .nav-menu, #mobile-menu, #nav-menu');
+        const hamburgerBtn = document.querySelector('.hamburger, .menu-toggle, #hamburger, .nav-toggle');
+        
+        if (mobileMenu) mobileMenu.classList.remove('open', 'active', 'is-open', 'show');
+        if (hamburgerBtn) hamburgerBtn.classList.remove('open', 'active', 'is-open', 'show');
+      });
+    });
 
   }); // End of DOMContentLoaded
 </script>
 </body>
-</html>
