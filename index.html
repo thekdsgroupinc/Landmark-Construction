@@ -591,13 +591,24 @@ header {
         }
       });
     }
-    // ========================================================
+// ========================================================
     // === CLOUDFLARE WORKER FORM SUBMISSION CODE END =========
     // ========================================================
 
- // Auto-close mobile navigation menu when any link inside it is clicked
-    document.querySelectorAll('.nav-links a, .nav-menu a, #nav-menu a, header a').forEach(link => {
+    // Auto-close BOTH the contact form modal and the mobile menu when any link is clicked
+    document.querySelectorAll('.nav-links a, .nav-menu a, #nav-menu a, header a, nav a').forEach(link => {
       link.addEventListener('click', () => {
+        
+        // 1. FORCE THE CONTACT FORM MODAL TO CLOSE 👇
+        if (typeof contactModal !== 'undefined' && contactModal) {
+          contactModal.classList.remove('is-open');
+        } else {
+          // Backup check in case the variable isn't globally available here
+          const modal = document.getElementById('contactModal');
+          if (modal) modal.classList.remove('is-open');
+        }
+
+        // 2. Also close the mobile navigation menu menu
         const mobileMenu = document.querySelector('.nav-links, .nav-menu, #mobile-menu, #nav-menu');
         const hamburgerBtn = document.querySelector('.hamburger, .menu-toggle, #hamburger, .nav-toggle');
         
@@ -609,3 +620,4 @@ header {
   }); // End of DOMContentLoaded
 </script>
 </body>
+</html>
