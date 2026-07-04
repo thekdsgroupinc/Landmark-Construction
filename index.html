@@ -521,6 +521,21 @@ header {
     });
     // === INSERTED PAGE TRANSITION JAVASCRIPT ABOVE ===
 
+     // 3. Close Bootstrap menu when clicking section links on the same page (Services, About)
+    document.querySelectorAll('.navbar-nav .nav-link:not(#contactLink)').forEach(link => {
+      link.addEventListener('click', () => {
+        const navbarCollapse = document.getElementById('navbarNav');
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+          navbarCollapse.classList.remove('show');
+          const togglerBtn = document.querySelector('.navbar-toggler');
+          if (togglerBtn) {
+            togglerBtn.setAttribute('aria-expanded', 'false');
+            togglerBtn.classList.add('collapsed');
+          }
+        }
+      });
+    });
+
     // ========================================================
     // === AUTO-FORMAT PHONE NUMBER AS USER TYPES =============
     // ========================================================
