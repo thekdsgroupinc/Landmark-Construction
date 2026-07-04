@@ -271,7 +271,7 @@ header {
             <a class="nav-link" href="#about">About</a>
           </li>
          <li class="nav-item">
-  <a class="nav-link" id="contactLink" href="#contact-us">Contact Us</a>
+  <a class="nav-link" id="contactLink" href="#">Contact Us</a>
 </li>
           <li class="nav-item">
             <a class="nav-link" href="pricing.html">Pricing</a>
@@ -469,12 +469,16 @@ header {
         e.preventDefault(); 
         contactModal.classList.add('is-open'); 
 
-       // 👇 ADD THESE LINES TO FORCE THE MOBILE MENU TO CLOSE 👇
-        const mobileMenu = document.querySelector('.nav-links, .nav-menu, #mobile-menu, #nav-menu');
-        const hamburgerBtn = document.querySelector('.hamburger, .menu-toggle, #hamburger');
-        
-        if (mobileMenu) mobileMenu.classList.remove('open', 'active', 'is-open', 'show');
-        if (hamburgerBtn) hamburgerBtn.classList.remove('open', 'active', 'is-open', 'show');
+        // Close Bootstrap mobile menu container safely
+        const navbarCollapse = document.getElementById('navbarNav');
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+          navbarCollapse.classList.remove('show');
+          const togglerBtn = document.querySelector('.navbar-toggler');
+          if (togglerBtn) {
+            togglerBtn.setAttribute('aria-expanded', 'false');
+            togglerBtn.classList.add('collapsed');
+          }
+        }
       });
     }
 
