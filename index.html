@@ -499,6 +499,47 @@ header {
       }
     }
 
+ // 4. Smoothly scroll to inner section titles and auto-close the Bootstrap mobile menu
+    document.querySelectorAll('.navbar-nav .nav-link:not(#contactLink)').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        if (!targetId || !targetId.startsWith('#')) return;
+
+        const targetSection = document.querySelector(targetId);
+        const navbar = document.querySelector('.navbar');
+
+        if (targetSection && navbar) {
+          e.preventDefault(); 
+
+          // Look for the specific inner title element inside your section box
+          const innerTitle = targetSection.querySelector('.section-title');
+          const elementToScrollTo = innerTitle ? innerTitle : targetSection;
+
+          // Calculate navbar height and elements coordinates
+          const navHeight = navbar.offsetHeight;
+          const targetPosition = elementToScrollTo.getBoundingClientRect().top + window.scrollY;
+          const extraBreathingRoom = 15; 
+
+          window.scrollTo({
+            top: targetPosition - navHeight - extraBreathingRoom,
+            behavior: 'smooth'
+          });
+        }
+
+        // Close the Bootstrap mobile menu drawer container safely
+        const navbarCollapse = document.getElementById('navbarNav');
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+          navbarCollapse.classList.remove('show');
+          const togglerBtn = document.querySelector('.navbar-toggler');
+          if (togglerBtn) {
+            togglerBtn.setAttribute('aria-expanded', 'false');
+            togglerBtn.classList.add('collapsed');
+          }
+        }
+      });
+    });
+
+    
     // === INSERTED PAGE TRANSITION JAVASCRIPT BELOW ===
     // 1. Smoothly fade the entire page in as soon as the HTML elements render
     document.body.classList.add('page-loaded');
