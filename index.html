@@ -583,7 +583,7 @@ header {
           } else {
             alert('Error: Failed to process form submission backend.');
           }
-                } catch (error) {
+        } catch (error) {
           alert('Network error. Check connection or backend settings.');
         } finally {
           button.disabled = false;
@@ -597,10 +597,12 @@ header {
 
     // Safe link checker to close the contact modal and menu
     document.addEventListener('click', (e) => {
-      // Check if the clicked item is a link inside a nav or header
-      if (e.target.closest('nav a, header a, .nav-links a, .nav-menu a')) {
+      const clickedLink = e.target.closest('nav a, header a, .nav-links a, .nav-menu a');
+      
+      // ONLY run this if a link was clicked, and it is NOT your contact button/link
+      if (clickedLink && clickedLink !== contactLink) {
         
-        // 1. Safely close the modal form
+        // 1. Safely close the modal form when clicking other pages (Services, About, etc.)
         const modal = document.getElementById('contactModal');
         if (modal) {
           modal.classList.remove('is-open');
@@ -619,3 +621,4 @@ header {
 </script>
 </body>
 </html>
+
