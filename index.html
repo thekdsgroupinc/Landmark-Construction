@@ -518,18 +518,13 @@ header {
           // Calculate navbar height and elements coordinates
           const navHeight = navbar.offsetHeight;
           const targetPosition = elementToScrollTo.getBoundingClientRect().top + window.scrollY;
-          const extraBreathingRoom = 15; // Increased to keep the title completely visible
+          const extraBreathingRoom = 25; // Increased to 25px to keep titles completely visible
 
-         // Briefly timeout to allow the browser's default instant jump to clear out
-      setTimeout(() => {
-        window.scrollTo({
-          top: targetPosition - navHeight - extraBreathingRoom,
-          behavior: 'smooth'
-        });
-      }, 100);
-    }
-  }
-});
+          window.scrollTo({
+            top: targetPosition - navHeight - extraBreathingRoom,
+            behavior: 'smooth'
+          });
+        }
 
         // Close the Bootstrap mobile menu drawer container safely
         const navbarCollapse = document.getElementById('navbarNav');
@@ -543,7 +538,6 @@ header {
         }
       });
     });
-
     
     // === INSERTED PAGE TRANSITION JAVASCRIPT BELOW ===
     // 1. Smoothly fade the entire page in as soon as the HTML elements render
