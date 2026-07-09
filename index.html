@@ -392,11 +392,27 @@ header {
   <p style="font-size: 12px; margin-top: 8px; font-weight: normal; text-align: center;">SFDBI #389</p>
 </div>
       <!-- Add or remove badges as needed -->
-</div>
+</div> <!-- Closes .badge-list -->
 
-        <p style="text-align: center; font-size: 14px; margin-top: 25px; color: #555555; font-style: italic;">
-        Click on a logo to verify my license!
-    </p>
+<!-- Animated instruction text centered at the bottom -->
+<p class="auto-color-text" style="text-align: center; font-size: 14px; margin-top: 25px; font-style: italic;">
+    Click on a logo to verify license status
+</p>
+
+<style>
+.auto-color-text {
+    /* Runs the 'colorCycle' animation endlessly every 6 seconds */
+    animation: colorCycle 6s infinite ease-in-out; 
+}
+
+@keyframes colorCycle {
+    0%   { color: #555555; } /* Starts as standard gray */
+    33%  { color: #1a365d; } /* Fades into deep professional navy */
+    66%  { color: #007bff; } /* Fades into bright interaction blue */
+    100% { color: #555555; } /* Loops back smoothly to gray */
+}
+</style>
+
   </section>
 
 <section class="licenses">
