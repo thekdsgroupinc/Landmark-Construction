@@ -394,25 +394,45 @@ header {
       <!-- Add or remove badges as needed -->
 </div> <!-- Closes .badge-list -->
 
-<!-- Animated instruction text centered at the bottom -->
-<p class="auto-color-text" style="text-align: center; font-size: 14px; margin-top: 25px; font-style: italic;">
-    Click on a logo to verify license status
-</p>
+<!-- Multi-green wave instruction text centered at the bottom -->
+    <p class="auto-color-text" style="text-align: center; font-size: 14px; margin-top: 25px; font-style: italic; font-weight: bold;">
+        Click on a logo to verify license status
+    </p>
 
-<style>
-.auto-color-text {
-    /* Runs the 'colorCycle' animation endlessly every 6 seconds */
-    animation: colorCycle 6s infinite ease-in-out; 
-}
+    <style>
+    .auto-color-text {
+        /* Palette: Pure Black background transitioning through Dark Green, Medium Green, and a Bright Green center peak */
+        background: linear-gradient(
+            to right, 
+            #000000 0%, 
+            #0b3d16 20%, 
+            #1e7e34 40%, 
+            #00ff00 50%, /* Brightest Light Color */
+            #1e7e34 60%, 
+            #0b3d16 80%, 
+            #000000 100%
+        );
+        background-size: 200% auto;
+        
+        /* Clip gradient to text */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        
+        /* Animation timing and movement */
+        animation: multiGreenWave 5s linear infinite;
+    }
 
-@keyframes colorCycle {
-    0%   { color: #555555; } /* Starts as standard gray */
-    33%  { color: #1a365d; } /* Fades into deep professional navy */
-    66%  { color: #007bff; } /* Fades into bright interaction blue */
-    100% { color: #555555; } /* Loops back smoothly to gray */
-}
-</style>
-
+    @keyframes multiGreenWave {
+        0% {
+            background-position: 200% center;
+        }
+        100% {
+            background-position: -200% center;
+        }
+    }
+    </style>
   </section>
 
 <section class="licenses">
