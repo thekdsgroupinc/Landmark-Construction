@@ -339,10 +339,13 @@ header {
       </div>
 
       <!-- 3. Inspections Section (FIXED: Uses class="service" and inline hover cursor) -->
-      <div class="service" 
-           style="cursor: pointer;"
-           onclick="window.location.href='inspections.html';">
-        <div class="service-title">Inspections</div>
+     <div class="service service-clickable" 
+     onclick="window.location.href='inspections.html';" 
+     data-tooltip="Click to view all inspection types">
+     
+    <div class="service-title">Inspections</div>
+    
+</div>
         <ul>
           <li>Roof</li>
           <li>General Property</li>
