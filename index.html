@@ -31,7 +31,7 @@
     .navbar {
       background: #fff;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      padding: 5px 0;
+      padding: 8px 0;
     }
     .navbar-brand img {
       height: 50px;
@@ -50,20 +50,12 @@
       color: #008000 !important;
       border-bottom: 2px solid #008000;
     }
-    
-/* INSERTED HERE: Dropdown items text green on hover, no background shade */
-    .dropdown-menu .dropdown-item:hover,
-    .dropdown-menu .dropdown-item:focus {
-      color: #008000 !important;       
-      background-color: transparent !important; 
-    }
-
-    header {
-      background: transparent;
-      padding: 0;  /* changed from 8px */
-      text-align: center;
-      margin-bottom: 10px;  /* Note: Added 'px' here to fix a small syntax bug! */
-    }
+header {
+  background: transparent;
+  padding: 0;  /* changed from 8px */
+  text-align: center;
+  margin-bottom: 10;  /* changed from 10px */
+}
    
     .main-image {
       width: 100%;
@@ -71,30 +63,16 @@
       height: auto;
       display: block;
       margin: 0 auto;
-    }  
-   /* 1. Keep the shared styles for all other sections, but remove .services */
-.project-list, .contact, .licenses, .about {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #eaeaea;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-
-/* 2. Create a unique rule just for the services section with the scroll margin fix */
-.services {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #eaeaea;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
   
-  /* This prevents the sticky navbar from cutting off the title */
-  scroll-margin-top: 81px; 
-}
-
+    .services, .project-list, .contact, .licenses, .about {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #eaeaea;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
     .section-title {
       font-size: 2em;
       margin-bottom: 20px;
@@ -275,50 +253,38 @@
   </style>
 </head>
 <body>
-  <!-- Navigation Bar --> 
-<nav class="navbar navbar-expand-lg navbar-light sticky-top"> 
-  <div class="container-fluid"> 
-    <a class="navbar-brand" href="#home">
-      <img src="Landmark Logo.png" alt="Landmark Construction Company">
-    </a> 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> 
-      <span class="navbar-toggler-icon"></span> 
-    </button> 
-    <div class="collapse navbar-collapse" id="navbarNav"> 
-      <ul class="navbar-nav ms-auto"> 
-        <li class="nav-item"> 
-          <a class="nav-link active" href="#home">Home</a> 
-        </li> 
-        
-        <!-- Services Dropdown Menu -->
-        <li class="nav-item dropdown"> 
-          <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Services
-          </a> 
-          <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-            <li><a class="dropdown-item" href="#home improvement.html">Home Improvement</a></li>
-            <li><a class="dropdown-item" href="#roofing.html">Roofing</a></li>
-            <li><a class="dropdown-item" href="inspections.html">Inspections</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#services">All Services</a></li>
-          </ul>
-        </li> 
-        
-        <li class="nav-item"> 
-          <a class="nav-link" href="#about">About</a> 
-        </li> 
-        <li class="nav-item"> 
-          <a class="nav-link" id="contactLink" href="#">Contact Us</a> 
-        </li> 
-        <li class="nav-item"> 
-          <a class="nav-link" href="pricing.html">Pricing</a> 
-        </li> 
-      </ul> 
-    </div> 
-  </div> 
-</nav> 
-<div class="custom-bg-image"></div> 
-<!-- rest of your HTML... -->
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container-fluid">
+     <a class="navbar-brand" href="#home"><img src="Landmark Logo.png" alt="Landmark Construction Company"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+         <li class="nav-item">
+  <a class="nav-link" id="contactLink" href="#">Contact Us</a>
+</li>
+          <li class="nav-item">
+            <a class="nav-link" href="pricing.html">Pricing</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="custom-bg-image"></div>
+
+  <!-- rest of your HTML... -->
   
   <section class="services" id="services">
     <div class="section-title">Our Services</div>
@@ -792,4 +758,3 @@ window.addEventListener('load', () => {
 </script>
 </body>
 </html>
-
