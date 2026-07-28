@@ -2,17 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Inspection Service</title>
-  <link rel="icon" type="image/x-icon" href="favicon-32x32 L.png">
+  <title>Inspection Services</title>
+  <link rel="icon" type="image/png" href="favicon-32x32 L.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Universal Link Preview Settings --> 
-  <meta property="og:title" content="Landmark Construction and Inspection Service"> 
-  <meta property="og:image" content="https://thelandmarkinc.com"> 
-  <meta property="og:url" content="https://thelandmarkinc.com">
-
-  <!-- Bootstrap 5 CSS Framework (FIXED LINK PATH) -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   
   <style>
     body {
@@ -22,14 +16,14 @@
       color: #222;
       position: relative;
     }
-    .section-title {
+        .section-title {
       font-family: 'Ink Free', sans-serif;
       font-size: 2em;
       margin-bottom: 20px;
       color: #222;
       text-align: center;
-    }
-    /* Navigation Navbar */
+    }    
+    /* Navigation Navbar Styles */
     .navbar {
       background: #fff;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -52,193 +46,256 @@
       color: #008000 !important;
       border-bottom: 2px solid #008000;
     }
-    
-    /* Dropdown items text green on hover, no background shade */
-    .dropdown-menu .dropdown-item:hover,
-    .dropdown-menu .dropdown-item:focus {
-      color: #008000 !important;       
-      background-color: transparent !important; 
-    }
-
-    header {
-      background: transparent;
+     /* 1. Global Reset (Optional but recommended to fix spacing) */
+    * {
+      margin: 0;
       padding: 0;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-   
-    .main-image {
-      width: 100%;
-      max-width: 100vw;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }  
-
-    /* Full screen modal popup overlay styles */
-    .modal-overlay {
-      position: fixed;
-      top: 0; 
-      left: 0; 
-      right: 0; 
-      bottom: 0;
-      width: 100vw; 
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.4); 
-      display: flex;           
-      align-items: center;     
-      justify-content: center;  
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.4s ease, visibility 0.4s ease;
-    }
-    .modal-overlay.is-open {
-      opacity: 1;
-      visibility: visible;
-    }
-    .modal-content {
-      background: #fff;
-      border-radius: 8px;
-      padding: 40px 32px 24px 32px; 
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
-      min-width: 320px;
-      max-width: 90vw;
-      position: relative; 
-    }
-    #contactForm input,
-    #contactForm textarea {
-      width: 100%;
-      margin-bottom: 12px;
       box-sizing: border-box;
-      display: block;
-      padding: 8px;
     }
-    .close-btn {
-      position: absolute;
-      right: 16px;
-      top: 12px;
-      font-size: 26px;
-      cursor: pointer;
-      color: #333;
-      line-height: 1;
-      z-index: 1010; 
+
+    /* 2. Banner Style */
+    .main-banner {
+      background: #f4f4f4;
+      padding: 20px 0; /* Adjust this 20px to change the banner height */
+      text-align: center;
+      font-family: 'Ink Free', sans-serif;
     }
-    .close-btn:hover {
-      color: #008000; 
+
+    /* 3. Spacing Fixes */
+    .main-banner h1 {
+      margin-bottom: 0; /* Removes gap between H1 and the Disclaimer */
     }
-    #contactForm button[type="submit"] {
-      width: 100%;
-      background-color: #008000; 
-      color: #ffffff;            
-      border: none;
-      padding: 12px;
-      font-size: 16px;
+    
+    .price-disclaimer {
+      font-family: Calibri, Arial, sans-serif;
       font-weight: bold;
-      border-radius: 6px;        
-      cursor: pointer;
-      transition: background 0.2s ease;
+      color: #222;
+      margin-top: 5px;   /* Small gap below the title */
+      margin-bottom: 0; /* REMOVES the gap at the very bottom of the banner */
+      white-space: nowrap; /* Prevents text from breaking into two lines */
     }
-    #contactForm button[type="submit"]:hover {
-      background-color: #006400; 
+     main.container h2 {
+      margin-top: -88px;
+      padding-top: 5px; /* Adjust this number to nudge it up or down */
     }
-    .carousel-img { 
-      width: 100%; 
-      height: 240px; 
-      object-fit: cover; 
+     /* Fee Section Table Styles (Updated for Mobile Width) */
+    .fee-section {
+      max-width: 1140px;
+      width: 98%;           /* Makes it wider on mobile */
+      margin: 10px auto;
+      padding: 10px;        /* Less padding = more room for text */
+      font-family: Calibri, Arial, sans-serif;
+      box-sizing: border-box; /* Keeps everything contained */
+    }
+    .fee-section td, 
+.fee-section th {
+   /* min 12px, scales at 1.2vw, max 18px */
+        font-size: clamp(12px, 1.2vw, 18px); 
+        word-wrap: break-word; /* Allows long words to wrap if needed */
+}
+    .fee-table {
+      width: 100% !important;
+      table-layout: fixed;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .fee-table th, .fee-table td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .fee-table th {
+      background-color: #f8f8f8;
+      font-weight: bold;
+    }
+    
+    .fee-table tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+    .extra-fees .list-unstyled strong {
+  font-weight: normal; /* normal weight text for extra service price */
+}
+   /* === ADDED FOR SMOOTH PAGE TRANSITIONS === */
+    body {
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+    body.page-loaded {
+      opacity: 1;
+    }
+    /* ========================================= */  
+    
+   /* Custom Green Button - Normal State */
+    .btn-custom-green {
+      background-color: #008000 !important;
+      color: white !important;
+      border: none !important;
+    }
+
+    /* Custom Green Button - Hover State */
+    .btn-custom-green:hover {
+      background-color: #006600 !important; /* Mutes slightly on hover so it reacts to clicks */
+      color: white !important;
+      opacity: 0.9; 
     }
   </style>
 </head>
-<body>
+  <body>
 
-  <!-- Navigation Bar --> 
-  <nav class="navbar navbar-expand-lg navbar-light sticky-top"> 
-    <div class="container-fluid"> 
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container-fluid">
       <a class="navbar-brand" href="index.html#home">
         <img src="Landmark Logo.png" alt="Landmark Construction Company">
-      </a> 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> 
-        <span class="navbar-toggler-icon"></span> 
-      </button> 
-      <div class="collapse navbar-collapse" id="navbarNav"> 
-        <ul class="navbar-nav ms-auto"> 
-          <li class="nav-item"> 
-            <a class="nav-link" href="index.html#home">Home</a> 
-          </li> 
-          
-          <!-- Services Dropdown Menu -->
-        <li class="nav-item dropdown"> 
-         <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Services
-          </a> 
-          <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-            <li><a class="dropdown-item" href="#home improvement.html">Home Improvement</a></li>
-            <li><a class="dropdown-item" href="#roofing.html">Roofing</a></li>
-            <li><a class="dropdown-item" href="inspections.html">Inspections</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="index.html#services">All Services</a></li>
-          </ul>
-        </li> 
-        
-        <li class="nav-item"> 
-          <a class="nav-link" href="#about">About</a> 
-        </li> 
-        <li class="nav-item"> 
-          <a class="nav-link" id="contactLink" href="#">Contact Us</a> 
-        </li> 
-        <li class="nav-item"> 
-          <a class="nav-link" href="pricing.html">Pricing</a> 
-        </li> 
-      </ul> 
-    </div> 
-  </div> 
-</nav> 
-
-  <!-- Empty Canvas Area (Insert your custom HTML anywhere inside this block) -->
-  <div class="container my-5">
-    
-  </div>
-
-  <!-- Contact Us Popup Modal Layout (FIXED RESTORED COMPLETION) -->
-  <div class="modal-overlay" id="contactModal">
-    <div class="modal-content">
-      <span class="close-btn" id="closeModal">&times;</span>
-      <h3 class="text-center mb-4" style="color: #222;">Contact Us</h3>
-      <form id="contactForm">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <input type="text" placeholder="Subject" required>
-        <textarea placeholder="Your Message" rows="4" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"> <a class="nav-link" id="contactLink" href="/index.html?openContact=true">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </nav>
 
-  <!-- Bootstrap Javascript Bundle with Popper (Required to trigger dropdown animations) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<body>
+
+  <!-- 1. The Header Banner -->
+  <header class="main-banner">
+    <div class="container">
+      <h1>General Fee Structure</h1>
+      <p class="price-disclaimer">*ALL PRICES ARE SUBJECT TO CHANGE*</p>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <div class="table-responsive"> <!-- Adds a scrollbar on mobile so it doesn't break -->
+        <table class="table fee-table">
+            <!-- Your table content -->
+        </table>
+    </div>
+</main>
+
+  <!-- 2. The Main Content Area -->
+  <main class="container my-5">
+    <h2>Inspection Services</h2>
+   <p class="mb-1">Service Areas: Alameda, Contra Costa, San Francisco, San Mateo, Santa Clara</p>
+
+    
+  <!-- 5. Navigation Button -->
+<div class="mt-5">
+  <a href="index.html" class="btn btn-custom-green">Back to Home</a>
+</div>
+
+   <!-- Centered Payment Link Matched to Webpage Styles -->
+<div class="mt-3 text-center">
+  <div style="
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    font-family: Calibri, Arial, sans-serif;
+  ">
+    <!-- Centered Payment Link Matched to Webpage Styles -->
+<div class="mt-3 text-center">
+  <div style="
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    font-family: Calibri, Arial, sans-serif;
+  ">
+<!-- 1. ADDED FLEX STYLING TO THIS DIV TO CENTER THE NOTE TEXT UNDER THE BUTTON -->
+<div style="padding: 10px; display: flex; flex-direction: column; align-items: center;">
+  <a id="embedded-checkout-modal-checkout-button" target="_blank" data-url="https://square.link/u/rKWu2Fed?src=embd" href="https://square.link/u/rKWu2Fed?src=embed" style="
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 40px;
+    height: 40px;
+    color: #ffffff;
+    min-width: 212px;
+    background-color: #008000;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+  " onmouseover="this.style.backgroundColor='#006400'" onmouseout="this.style.backgroundColor='#008000'">Make a Payment</a>
   
+  <!-- 2. INSERT YOUR NOTE HERE (BELOW THE /A TAG) -->
+  <p class="text-muted small mt-2 mb-0" style="text-align: center;">If you use a credit card, we will charge an additional 3% fee and any applicable taxes to help offset processing costs. This is not more than we pay in fees.</p>
+</div>
+
+<script>
+  function showCheckoutWindow(e) {
+    e.preventDefault();
+    const url = document.getElementById('embedded-checkout-modal-checkout-button').getAttribute('data-url');
+    const title = 'Square Payment Links';
+    const topWindow = window.top ? window.top : window;
+    const dualScreenLeft = topWindow.screenLeft !== undefined ? topWindow.screenLeft : topWindow.screenX;
+    const dualScreenTop = topWindow.screenTop !== undefined   ? topWindow.screenTop  : topWindow.screenY;
+    const width = topWindow.innerWidth ? topWindow.innerWidth : document.documentElement.clientWidth;
+    const height = topWindow.innerHeight ? topWindow.innerHeight : document.documentElement.clientHeight;
+    const h = height * .75;
+    const w = 500;
+    const systemZoom = width / topWindow.screen.availWidth;
+    const left = (width - w) / 2 / systemZoom + dualScreenLeft;
+    const top = (height - h) / 2 / systemZoom + dualScreenTop;
+    const newWindow = window.open(url, title, `scrollbars=yes, width=${w / systemZoom}, height=${h / systemZoom}, top=${top}, left=${left}`);
+    if (window.focus) newWindow.focus();
+  }
+
+  document.getElementById('embedded-checkout-modal-checkout-button').addEventListener('click', function (e) {
+    showCheckoutWindow(e);
+  });
+</script>
+
+</div>
+  </main>
+
+
+  <!-- Bootstrap 5 JavaScript Bundle with Popper (Required for Mobile Menu) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+  <!-- === REINFORCED JAVASCRIPT BELOW === -->
   <script>
-    // Modal structural toggles logic engine
-    const contactLink = document.getElementById('contactLink');
-    const contactModal = document.getElementById('contactModal');
-    const closeModal = document.getElementById('closeModal');
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Instantly reveals the pricing page elements once loaded
+      document.body.classList.add('page-loaded');
 
-    if (contactLink && contactModal && closeModal) {
-      contactLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        contactModal.classList.add('is-open');
-      });
+      // 2. Intercept link clicks safely so the page doesn't get stuck on menus/popups
+      const links = document.querySelectorAll('a:not([target="_blank"])');
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
 
-      closeModal.addEventListener('click', () => {
-        contactModal.classList.remove('is-open');
-      });
+          // SAFETY CHECK: Skip fade-out if the link is empty or an anchor trigger on this page
+          if (!href || href === '#' || href.startsWith('#') || href.startsWith('javascript:')) {
+            return; 
+          }
 
-      window.addEventListener('click', (e) => {
-        if (e.target === contactModal) {
-          contactModal.classList.remove('is-open');
-        }
+          e.preventDefault();
+          const targetUrl = link.href;
+
+          // Smoothly fade the whole page out before leaving
+          document.body.style.opacity = '0';
+
+          // Wait for the fade-out animation to finish, then redirect
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 400); 
+        });
       });
-    }
+    });
   </script>
 </body>
 </html>
