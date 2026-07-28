@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Home, Roof, Termite, and SF (RECO) Inspection Service</title>
-   <link rel="icon" type="image/x-icon" href="favicon-32x32 L.png">
+  <link rel="icon" type="image/x-icon" href="favicon-32x32 L.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Universal Link Preview Settings (Kept completely separate from design layout) --> 
-<meta property="og:title" content="Landmark Construction and Inspection Service"> 
-<meta property="og:image" content="https://thelandmarkinc.com"> 
-<meta property="og:url" content="https://thelandmarkinc.com">
+  <!-- Universal Link Preview Settings --> 
+  <meta property="og:title" content="Landmark Construction and Inspection Service"> 
+  <meta property="og:image" content="https://thelandmarkinc.com"> 
+  <meta property="og:url" content="https://thelandmarkinc.com">
 
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -20,7 +20,7 @@
       color: #222;
       position: relative;
     }
-        .section-title {
+    .section-title {
       font-family: 'Ink Free', sans-serif;
       font-size: 2em;
       margin-bottom: 20px;
@@ -51,7 +51,7 @@
       border-bottom: 2px solid #008000;
     }
     
-/* INSERTED HERE: Dropdown items text green on hover, no background shade */
+    /* Dropdown items text green on hover, no background shade */
     .dropdown-menu .dropdown-item:hover,
     .dropdown-menu .dropdown-item:focus {
       color: #008000 !important;       
@@ -60,9 +60,9 @@
 
     header {
       background: transparent;
-      padding: 0;  /* changed from 8px */
+      padding: 0;
       text-align: center;
-      margin-bottom: 10px;  /* Note: Added 'px' here to fix a small syntax bug! */
+      margin-bottom: 10px;
     }
    
     .main-image {
@@ -72,35 +72,28 @@
       display: block;
       margin: 0 auto;
     }  
-   /* 1. Keep the shared styles for all other sections, but remove .services */
-.project-list, .contact, .licenses, .about {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #eaeaea;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
 
-/* 2. Create a unique rule just for the services section with the scroll margin fix */
-.services {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #eaeaea;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  
-  /* This prevents the sticky navbar from cutting off the title */
-  scroll-margin-top: 81px; 
-}
-
-    .section-title {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #222;
-      text-align: center;
+    /* 1. Keep the shared styles for all other sections, but remove .services */
+    .project-list, .contact, .licenses, .about {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #eaeaea;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
+
+    /* 2. Create a unique rule just for the services section with the scroll margin fix */
+    .services {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #eaeaea;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      scroll-margin-top: 81px; 
+    }
+
     .service-list {
       display: flex;
       flex-wrap: wrap;
@@ -126,14 +119,14 @@
       list-style: none;
       margin: 0;
     }
-   .licenses p {
-  margin: 6px 0;
-  text-align: center;
-}
-.about p {
-  margin: 6px 0;
-  text-align: left;
-}
+    .licenses p {
+      margin: 6px 0;
+      text-align: center;
+    }
+    .about p {
+      margin: 6px 0;
+      text-align: left;
+    }
     .project-list-images {
       display: flex;
       flex-wrap: wrap;
@@ -165,7 +158,7 @@
         align-items: center;
       }
     }
-       .custom-bg-image {
+    .custom-bg-image {
       width: 100%;
       height: 588px;
       background-image: url('Wooden House.jpg');
@@ -175,87 +168,76 @@
       background-attachment: fixed;
       margin: 0 auto;
     }
-/* Full screen dark/translucent background overlay */
-.modal-overlay {
-  position: fixed;
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0;
-  width: 100vw; 
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4); /* Dims the page content behind the popup */
-  
-  /* CRUCIAL LAYOUT FOR CENTERING: */
-  display: flex;           
-  align-items: center;     
-  justify-content: center;  
-  
-  z-index: 1000;
 
-  /* === ADDED FOR FADE ANIMATION === */
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-}
+    /* Full screen dark/translucent background overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      right: 0; 
+      bottom: 0;
+      width: 100vw; 
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4); 
+      display: flex;           
+      align-items: center;     
+      justify-content: center;  
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+    .modal-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: 8px;
+      padding: 40px 32px 24px 32px; 
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+      min-width: 320px;
+      max-width: 90vw;
+      position: relative; 
+    }
+    #contactForm input,
+    #contactForm textarea {
+      width: 100%;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+      display: block;
+      padding: 8px;
+    }
+    .close-btn {
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      font-size: 26px;
+      cursor: pointer;
+      color: #333;
+      line-height: 1;
+      z-index: 1010; 
+    }
+    .close-btn:hover {
+      color: #008000; 
+    }
+    #contactForm button[type="submit"] {
+      width: 100%;
+      background-color: #008000; 
+      color: #ffffff;            
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;        
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    #contactForm button[type="submit"]:hover {
+      background-color: #006400; 
+    }
 
-/* === ADDED TO TRIGGER FADE IN === */
-.modal-overlay.is-open {
-  opacity: 1;
-  visibility: visible;
-}
-/* The actual white box containing the form */
-.modal-content {
-  background: #fff;
-  border-radius: 8px;
-  padding: 40px 32px 24px 32px; /* Increased top padding so inputs don't touch the X button */
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
-  min-width: 320px;
-  max-width: 90vw;
-  position: relative; /* Crucial for positioning the X button */
-}
-
-   /* Form input spacing */
-#contactForm input,
-#contactForm textarea {
-  width: 100%;
-  margin-bottom: 12px;
-  box-sizing: border-box;
-  display: block;
-  padding: 8px;
-}
-    
-/* The Close "X" Button */
-.close-btn {
-  position: absolute;
-  right: 16px;
-  top: 12px;
-  font-size: 26px;
-  cursor: pointer;
-  color: #333;
-  line-height: 1;
-  z-index: 1010; /* Keeps the X clickable and on top of inputs */
-}
-.close-btn:hover {
-  color: #008000; /* Turns green on hover so you know it's interactive */
-}
-/* Style for your specific submit button */
-#contactForm button[type="submit"] {
-  width: 100%;
-  background-color: #008000; /* Your exact green color */
-  color: #ffffff;            /* Pure white text */
-  border: none;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 6px;        /* Rounds the button corners */
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-#contactForm button[type="submit"]:hover {
-  background-color: #006400; /* Darker green on hover */
-}
-      /* === ADDED FOR SMOOTH PAGE TRANSITIONS === */
+    /* Smooth page transitions */
     body {
       opacity: 0;
       transition: opacity 0.4s ease-in-out;
@@ -263,61 +245,101 @@
     body.page-loaded {
       opacity: 1;
     }
-    /* ========================================= */
-
-    /* Carousel image styling */ 
     .carousel-img { 
       width: 100%; 
       height: 240px; 
       object-fit: cover; 
     }
-
   </style>
 </head>
 <body>
+
   <!-- Navigation Bar --> 
-<nav class="navbar navbar-expand-lg navbar-light sticky-top"> 
-  <div class="container-fluid"> 
-    <a class="navbar-brand" href="#home">
-      <img src="Landmark Logo.png" alt="Landmark Construction Company">
-    </a> 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> 
-      <span class="navbar-toggler-icon"></span> 
-    </button> 
-    <div class="collapse navbar-collapse" id="navbarNav"> 
-  <ul class="navbar-nav ms-auto"> 
-    <li class="nav-item"> 
-      <!-- REMOVED active class and pointed back to index.html -->
-      <a class="nav-link" href="index.html#home">Home</a> 
-    </li> 
-    
-    <!-- Services Dropdown Menu (MADE ACTIVE HERE) -->
-    <li class="nav-item dropdown"> 
-      <a class="nav-link dropdown-toggle active" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Services
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top"> 
+    <div class="container-fluid"> 
+      <a class="navbar-brand" href="index.html#home">
+        <img src="Landmark Logo.png" alt="Landmark Construction Company">
       </a> 
-      <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-        <li><a class="dropdown-item" href="residential.html">Residential Construction</a></li>
-        <li><a class="dropdown-item" href="commercial.html">Commercial Construction</a></li>
-        <li><a class="dropdown-item" href="inspections.html">Inspections</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="index.html#services">All Services</a></li>
-      </ul>
-    </li> 
-    
-    <!-- Pointed other items back to index.html sections -->
-    <li class="nav-item"> 
-      <a class="nav-link" href="index.html#about">About</a> 
-    </li> 
-    <li class="nav-item"> 
-      <a class="nav-link" id="contactLink" href="#">Contact Us</a> 
-    </li> 
-    <li class="nav-item"> 
-      <a class="nav-link" href="pricing.html">Pricing</a> 
-    </li> 
-  </ul> 
-</div> 
-  </div> 
-</nav> 
-<div class="custom-bg-image"></div> 
-<!-- rest of your HTML... -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> 
+        <span class="navbar-toggler-icon"></span> 
+      </button> 
+      <div class="collapse navbar-collapse" id="navbarNav"> 
+        <ul class="navbar-nav ms-auto"> 
+          <li class="nav-item"> 
+            <a class="nav-link" href="index.html#home">Home</a> 
+          </li> 
+          
+          <!-- Services Dropdown Menu -->
+          <li class="nav-item dropdown"> 
+            <a class="nav-link dropdown-toggle active" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a> 
+            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="residential.html">Residential Construction</a></li>
+              <li><a class="dropdown-item" href="commercial.html">Commercial Construction</a></li>
+              <li><a class="dropdown-item" href="inspections.html">Inspections</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="index.html#services">All Services</a></li>
+            </ul>
+          </li> 
+          
+          <li class="nav-item"> 
+            <a class="nav-link" href="index.html#about">About</a> 
+          </li> 
+          <li class="nav-item"> 
+            <a class="nav-link" id="contactLink" href="#">Contact Us</a> 
+          </li> 
+          <li class="nav-item"> 
+            <a class="nav-link" href="pricing.html">Pricing</a> 
+          </li> 
+        </ul> 
+      </div> 
+    </div> 
+  </nav>
+
+  <!-- Contact Us Modal Overlay & Popup Form -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h3 class="text-center mb-4" style="color: #222;">Contact Us</h3>
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Content Containers Go Here (e.g. your Inspection details grid) -->
+  <div class="container my-5">
+    <h1 class="section-title">Inspection Services</h1>
+    <!-- You can place your custom inspection grid cards or text blocks right here -->
+  </div>
+
+  <!-- Bootstrap Bundle with Popper (Required for Dropdowns to function) -->
+  <script src="https://jsdelivr.net"></script>
+
+  <!-- Navigation / Modal Logic Scripts -->
+  <script>
+    // Fade page in smoothly on load
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('page-loaded');
+    });
+
+    // Contact Modal Toggle Mechanics
+    const contactLink = document.getElementById('contactLink');
+    const contactModal = document.getElementById('contactModal');
+    const closeModal = document.getElementById('closeModal');
+
+    if (contactLink && contactModal && closeModal) {
+      contactLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        contactModal.classList.add('is-open');
+      });
+
+      closeModal.addEventListener('click', () => {
+        contactModal.classList.remove('is-open');
+      });
+
