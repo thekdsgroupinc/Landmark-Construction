@@ -81,11 +81,13 @@
      
     /* === ADDED FOR SMOOTH PAGE TRANSITIONS === */
     body {
-      /* Triggers instantaneous, buttery-smooth mobile fade-in */
+      /* 1. Change 0.5s to change how fast the page fades in when you open it */
       animation: fadeInPage 0.5s ease-in-out forwards;
       will-change: opacity;
       transform: translate3d(0, 0, 0);
       -webkit-transform: translate3d(0, 0, 0);
+
+      /* 2. Change 0.4s to change how fast the page fades out when you click a link */
       transition: opacity 0.4s ease-in-out; /* Keeps the click-to-leave fade out working */
     }
 
