@@ -53,7 +53,7 @@
       box-sizing: border-box;
     }
 
-    /* 2. Banner Style */
+       /* 2. Banner Style */
     .main-banner {
       background: #f4f4f4;
       padding: 20px 0; /* Adjust this 20px to change the banner height */
@@ -63,20 +63,12 @@
 
     /* 3. Spacing Fixes */
     .main-banner h1 {
-      margin-bottom: 0; /* Removes gap between H1 and the Disclaimer */
+      margin-bottom: 0; /* Removes gap between H1 and the bottom of banner */
     }
     
-    .price-disclaimer {
-      font-family: Calibri, Arial, sans-serif;
-      font-weight: bold;
-      color: #222;
-      margin-top: 5px;   /* Small gap below the title */
-      margin-bottom: 0; /* REMOVES the gap at the very bottom of the banner */
-      white-space: nowrap; /* Prevents text from breaking into two lines */
-    }
-     main.container h2 {
-      margin-top: -88px;
-      padding-top: 5px; /* Adjust this number to nudge it up or down */
+    main.container h2 {
+      margin-top: -50px; /* Adjusted from -88px because the missing disclaimer requires less layout shift */
+      padding-top: 5px;  /* Adjust this number to nudge it up or down */
     }
      
     /* === ADDED FOR SMOOTH PAGE TRANSITIONS === */
