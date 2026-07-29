@@ -79,15 +79,20 @@
       padding-top: 5px; /* Adjust this number to nudge it up or down */
     }
      
-   /* === ADDED FOR SMOOTH PAGE TRANSITIONS === */
+    /* === ADDED FOR SMOOTH PAGE TRANSITIONS === */
     body {
-      opacity: 0;
-      transition: opacity 0.4s ease-in-out;
-    }
-    body.page-loaded {
-      opacity: 1;
+      /* Triggers instantaneous, buttery-smooth mobile fade-in */
+      animation: fadeInPage 0.5s ease-in-out forwards;
+      will-change: opacity;
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      transition: opacity 0.4s ease-in-out; /* Keeps the click-to-leave fade out working */
     }
 
+    @keyframes fadeInPage {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
     /* ========================================= */  
     /* Custom Green Button - Normal State */
     .btn-custom-green {
