@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roofing Services</title>
+  <link rel="icon" type="image/png" href="favicon-32x32 L.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: Calibri, Arial, sans-serif;
+      background: #fff;
+      color: #222;
+      position: relative;
+    }
+        .section-title {
+      font-family: 'Ink Free', sans-serif;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #222;
+      text-align: center;
+    }    
+    /* Navigation Navbar Styles */
+    .navbar {
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 5px 0;
+    }
+    .navbar-brand img {
+      height: 50px;
+      width: auto;
+    }
+    .nav-link {
+      color: #222 !important;
+      margin: 0 8px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-link:hover {
+      color: #008000 !important;
+    }
+    .nav-link.active {
+      color: #008000 !important;
+      border-bottom: 2px solid #008000;
+    }
+    
+        /* 1. Global Reset (Optional but recommended to fix spacing) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Fixes navbar spacing conflict caused by the global reset */
+    .navbar-nav .nav-link {
+      padding-right: var(--bs-navbar-nav-link-padding-x, 0.5rem) !important;
+      padding-left: var(--bs-navbar-nav-link-padding-x, 0.5rem) !important;
+      display: inline-block;
+    }
+    
+       /* 2. Banner Style */
+    .main-banner {
+      background: #f4f4f4;
+      padding: 20px 0; /* Adjust this 20px to change the banner height */
+      text-align: center;
+      font-family: 'Ink Free', sans-serif;
+    }
+
+    /* 3. Spacing Fixes */
+    .main-banner h1 {
+      margin-bottom: 0; /* Removes gap between H1 and the bottom of banner */
+    }
+    
+    main.container h2 {
+      margin-top: -20px; /* Adjusted to change between header margin and banner */
+      padding-top: 5px;  /* Adjust this number to nudge it up or down */
+    }
+     
+    /* === ADDED FOR SMOOTH PAGE TRANSITIONS === */
+    body {
+      /* 1. Change 0.5s to change how fast the page fades in when you open it */
+      animation: fadeInPage 0.5s ease-in-out forwards;
+      will-change: opacity;
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+
+      /* 2. Change 0.4s to change how fast the page fades out when you click a link */
+      transition: opacity 0.4s ease-in-out; /* Keeps the click-to-leave fade out working */
+    }
+
+    @keyframes fadeInPage {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    /* ========================================= */  
+    /* Custom Green Button - Normal State */
+    .btn-custom-green {
+      background-color: #008000 !important;
+      color: white !important;
+      border: none !important;
+    }
+
+    /* Custom Green Button - Hover State */
+    .btn-custom-green:hover {
+      background-color: #006600 !important; /* Mutes slightly on hover so it reacts to clicks */
+      color: white !important;
+      opacity: 0.9; 
+    }
+  </style>
+</head>
+  <body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html#home">
+        <img src="Landmark Logo.png" alt="Landmark Construction Company">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="index.html#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"> <a class="nav-link" id="contactLink" href="/index.html?openContact=true">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<body>
+
+ <!-- 1. The Header Banner -->
+  <header class="main-banner">
+    <div class="container">
+      <h1>Roofing Services</h1>
+    </div>
+  </header>
+
+  <!-- 2. The Main Content Area -->
+  <main class="container my-5">
+    <h2>Roofing Services</h2>
+    <p class="mb-1">Service Areas: Alameda, Contra Costa, San Francisco, San Mateo, Santa Clara</p>
+    
+  <!-- 5. Navigation Button -->
+ <div class="mt-5">
+   <a href="index.html" class="btn btn-custom-green">Back to Home</a>
+ </div>
+</main>
+
+
+  <!-- Bootstrap 5 JavaScript Bundle with Popper (Required for Mobile Menu) -->
+  <script src="https://jsdelivr.net"></script>
+</body>
+
+ <!-- === REINFORCED JAVASCRIPT BELOW === -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Instantly reveals the pricing page elements once loaded
+      document.body.classList.add('page-loaded');
+
+      // 2. Intercept link clicks safely so the page doesn't get stuck on menus/popups
+      const links = document.querySelectorAll('a:not([target="_blank"])');
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+
+          // SAFETY CHECK: Skip fade-out if the link is empty or an anchor trigger on this page
+          if (!href || href === '#' || href.startsWith('#') || href.startsWith('javascript:')) {
+            return; 
+          }
+
+          e.preventDefault();
+          const targetUrl = link.href;
+
+          // Smoothly fade the whole page out before leaving
+          document.body.style.opacity = '0';
+
+          // Wait for the fade-out animation to finish, then redirect
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 400); 
+        });
+      });
+    });
+  </script>
+</body>
+</html>
 
