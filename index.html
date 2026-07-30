@@ -530,92 +530,87 @@ header {
   </div> <!-- Closes .badge-list -->
 
   <style>
+  
   /* ==========================================================================
      LAYOUT STRUCTURE (Forcing one single row on desktop, stacking on mobile)
      ========================================================================== */
+  /* All layout styles are strictly locked to #licenses to protect other sections */
   
-  /* Desktop Layout Styles (Screen width 769px and above) */
   @media (min-width: 769px) {
-    .badge-list {
+    #licenses .badge-list {
       display: flex !important;
       flex-direction: row !important;
-      flex-wrap: nowrap !important; /* Strictly prevents the 5th logo from dropping */
+      flex-wrap: nowrap !important; /* Forces single row on desktop */
       justify-content: space-between !important;
       align-items: center !important;
-      gap: 15px !important; /* Tight internal spacing */
+      gap: 15px !important; 
       padding: 25px 0;
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
     }
 
-    .badge-list .service {
-      flex: 1 1 0px !important; /* Forces all 5 columns to take equal, fluid space */
-      min-width: 0 !important;   /* Allows columns to scale below text boundaries */
+    #licenses .badge-list .service {
+      flex: 1 1 0px !important; /* Equal column sizing */
+      min-width: 0 !important;   
       text-align: center;
     }
   }
 
-  /* Mobile Layout Styles (Screen width 768px and down) */
   @media (max-width: 768px) {
-    .badge-list {
+    #licenses .badge-list {
       display: flex !important;
-      flex-direction: column !important; /* Stacks items vertically on small monitors */
+      flex-direction: column !important; /* Stacks layout on mobile screens */
       align-items: center !important;
       gap: 30px !important;
       padding: 25px 0;
     }
 
-    .badge-list .service {
+    #licenses .badge-list .service {
       width: 100% !important;
       text-align: center;
     }
   }
 
-  /* Global Inner Content Rules */
-  .badge-list .service img {
-    max-width: 90px !important; /* Constrains image sizes so they do not crowd each other */
+  /* Inner element restrictions isolated to #licenses */
+  #licenses .badge-list .service img {
+    max-width: 90px !important; 
     width: 100% !important;
     height: auto !important;
     display: block;
     margin: 0 auto;
   }
 
-  .badge-list .service p {
+  #licenses .badge-list .service p {
     font-size: 11px !important;
     margin-top: 8px !important;
     margin-bottom: 0 !important;
     font-weight: normal;
     text-align: center;
-    white-space: nowrap; /* Keeps numbers on a single line string */
+    white-space: nowrap; 
   }
 
-  .badge-list .service a {
+  #licenses .badge-list .service a {
     text-decoration: none;
     color: inherit;
     display: block;
   }
 
-  /* ==========================================================================
-     CLEANUP OVERRIDES (Removing boxes, shadows, and adding text colors)
-     ========================================================================== */    
-  /* Ensure these specific logo wrappers have no background or borders */
-  .badge-list .service {
+  /* Clean structural overrides isolated to #licenses */
+  #licenses .badge-list .service {
     background: transparent !important;
     border: none !important;
-    box-shadow: none !important; /* Removes the flat shadow */
+    box-shadow: none !important; 
     padding: 0;
   }
 
-  /* Override hover to only animate placement, keeping background invisible */
   @media (hover: hover) {
-    .badge-list .service:hover {
-      box-shadow: none !important; /* Removes the floating shadow effect */
+    #licenses .badge-list .service:hover {
+      box-shadow: none !important; 
     }
   }
   
-  /* Keeps mobile touch press flat without shadows */
-  .badge-list .service:active {
+  #licenses .badge-list .service:active {
     box-shadow: none !important;
   }
 
