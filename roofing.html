@@ -97,7 +97,7 @@
     }
     /* ========================================= */  
 
-     /* === PASTE THE RESPONSIVE STACKING CODE HERE === */
+     /* === RESPONSIVE STACKING CODE HERE === */
     .badge-list {
       display: flex;
       flex-direction: column; /* Stack vertically on mobile */
@@ -121,6 +121,26 @@
       padding: 0;
     }
     /* =============================================== */
+
+     /* === POPUP MECHANICS FOR LOGOS === */
+.service {
+  transition: transform 0.2s ease-in-out;
+  will-change: transform; /* Optimizes browser rendering for animations */
+}
+
+/* Desktop Hover: Lifts up smoothly */
+@media (hover: hover) {
+  .service:hover {
+    transform: translateY(-8px) scale(1.05); /* Moves up 8px and slightly expands */
+  }
+}
+
+/* Mobile Tap/Active State: Shakes or presses down like a real button */
+.service:active {
+  transform: translateY(2px) scale(0.96); /* Tactile press feedback on touch screens */
+}
+
+/* =============================================== */
     
     /* Custom Green Button - Normal State */
     .btn-custom-green {
