@@ -481,76 +481,89 @@ header {
   <section class="licenses" id="licenses">
     <div class="section-title">Licenses & Certifications</div>
     <div class="badge-list">
-      <!-- Replace src with actual image paths and update alt text -->
- <div style="text-align: center;">
-  <a href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/LicenseDetail.aspx?LicNum=1123423">
-    <img src="cslb_logo.gif" alt="CSLB Logo" style="width:80px; height:auto;">
-  </a>
-   <p style="font-size: 12px; margin-top: 8px; font-weight: normal; text-align: center;">CSLB #1123423</p>
-</div> 
-       <div style="text-align: center;">
-  <a href="https://search.dca.ca.gov/details/8400/PR/9841/163a41297c13d2286abab40e4785ea4a">
-    <img src="SPCB-Logo.jpg" alt="SPCB Logo" style="width:96px; height:auto;">
-  </a>
-  <p style="font-size: 12px; margin-top: 8px; font-weight: normal; text-align: center;">SPCB #9841</p>
-</div> 
-        <div style="text-align: center;">
-  <a href="https://www.iccsafe.org/search-for-certified-professionals/">
-    <img src="ICC logo.png" alt="ICC logo" style="width:96px; height:auto;">
-  </a>
-  <p style="font-size: 12px; margin-top: 8px; font-weight: normal; text-align: center;">ICC #8037187</p>
-</div> 
-              <div style="text-align: center;">
-  <a href="https://www.sf.gov/comply-water-conservation-requirements">
-    <img src="Seal_of_SF.png" alt="Seal of SF" style="width:93px; height:auto;">
-  </a>
-  <p style="font-size: 12px; margin-top: 8px; font-weight: normal; text-align: center;">SFDBI #389</p>
-</div>
-      <!-- Add or remove badges as needed -->
-</div> <!-- Closes .badge-list -->
+      <!-- Replace src with actual image<section class="licenses" id="licenses">
+  <div class="section-title">Licenses & Certifications</div>
+  <div class="badge-list" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 20px 0;">
+    
+    <!-- CSLB Card -->
+    <div class="service service-clickable" data-tooltip="Click to verify CSLB License">
+      <a href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/LicenseDetail.aspx?LicNum=1123423" target="_blank" style="text-decoration: none; color: inherit;">
+        <img src="cslb_logo.gif" alt="CSLB Logo" style="width:80px; height:auto; display: block; margin: 0 auto;">
+        <p style="font-size: 12px; margin-top: 8px; font-weight: normal; text-align: center; margin-bottom: 0;">CSLB #1123423</p>
+      </a>
+    </div> 
 
-<!-- Multi-green wave instruction text centered at the bottom -->
-    <p class="auto-color-text" style="text-align: center; font-size: 14px; margin-top: 25px; font-style: italic; font-weight: bold;">
-        Click on a logo to verify my license!
-    </p>
+    <!-- SPCB Card -->
+    <div class="service service-clickable" data-tooltip="Click to verify SPCB Registration">
+      <a href="https://search.dca.ca.gov/details/8400/PR/9841/163a41297c13d2286abab40e4785ea4a" target="_blank" style="text-decoration: none; color: inherit;">
+        <img src="SPCB-Logo.jpg" alt="SPCB Logo" style="width:96px; height:auto; display: block; margin: 0 auto;">
+        <p style="font-size: 12px; margin-top: 8px; font-weight: normal; text-align: center; margin-bottom: 0;">SPCB #9841</p>
+      </a>
+    </div> 
 
-    <style>
-    .auto-color-text {
-        /* Palette: Pure Black background transitioning through Dark Green, Medium Green, and a Bright Green center peak */
-        background: linear-gradient(
-            to right, 
-            #000000 0%, 
-            #0b3d16 20%, 
-            #1e7e34 40%, 
-            #00ff00 50%, /* Brightest Light Color */
-            #1e7e34 60%, 
-            #0b3d16 80%, 
-            #000000 100%
-        );
-        background-size: 200% auto;
-        
-        /* Clip gradient to text */
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
-        
-        /* Animation timing and movement */
-        animation: multiGreenWave 5s linear infinite;
-    }
+    <!-- ICC Card -->
+    <div class="service service-clickable" data-tooltip="Click to verify ICC Certification">
+      <a href="https://www.iccsafe.org/search-for-certified-professionals/" target="_blank" style="text-decoration: none; color: inherit;">
+        <img src="ICC logo.png" alt="ICC logo" style="width:96px; height:auto; display: block; margin: 0 auto;">
+        <p style="font-size: 12px; margin-top: 8px; font-weight: normal; text-align: center; margin-bottom: 0;">ICC #8037187</p>
+      </a>
+    </div> 
 
-    @keyframes multiGreenWave {
-        0% {
-            background-position: 200% center;
-        }
-        100% {
-            background-position: -200% center;
-        }
-    }
-    </style>
-  </section>
+    <!-- SFDBI Card -->
+    <div class="service service-clickable" data-tooltip="Click to verify SFDBI Compliance">
+      <a href="https://www.sf.gov/comply-water-conservation-requirements" target="_blank" style="text-decoration: none; color: inherit;">
+        <img src="Seal_of_SF.png" alt="Seal of SF" style="width:93px; height:auto; display: block; margin: 0 auto;">
+        <p style="font-size: 12px; margin-top: 8px; font-weight: normal; text-align: center; margin-bottom: 0;">SFDBI #389</p>
+      </a>
+    </div>
 
-<section class="licenses">
+  </div> <!-- Closes .badge-list -->
+
+  <!-- Multi-green wave instruction text centered at the bottom -->
+  <p class="auto-color-text" style="text-align: center; font-size: 14px; margin-top: 25px; font-style: italic; font-weight: bold;">
+      Click on a logo to verify my license!
+  </p>
+
+  <style>
+  /* Give individual badge containers explicit card dimensions/padding */
+  .badge-list .service {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .auto-color-text {
+      background: linear-gradient(
+          to right, 
+          #000000 0%, 
+          #0b3d16 20%, 
+          #1e7e34 40%, 
+          #00ff00 50%, 
+          #1e7e34 60%, 
+          #0b3d16 80%, 
+          #000000 100%
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      animation: multiGreenWave 5s linear infinite;
+  }
+
+  @keyframes multiGreenWave {
+      0% { background-position: 200% center; }
+      100% { background-position: -200% center; }
+  }
+  </style>
+</section>
+
+<section class="prodcut brand">
   <div class="section-title">Product Brand</div>
   <div class="badge-list">
     <!-- Replace src with actual image paths and update alt text -->
