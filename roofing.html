@@ -96,6 +96,32 @@
       to { opacity: 1; }
     }
     /* ========================================= */  
+
+     /* === PASTE THE RESPONSIVE STACKING CODE HERE === */
+    .badge-list {
+      display: flex;
+      flex-direction: column; /* Stack vertically on mobile */
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    @media (min-width: 576px) {
+      .badge-list {
+        flex-direction: row; /* Side-by-side on desktop */
+        gap: 40px;
+      }
+    }
+    
+    .brand-logo-container {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0;
+    }
+    /* =============================================== */
+    
     /* Custom Green Button - Normal State */
     .btn-custom-green {
       background-color: #008000 !important;
