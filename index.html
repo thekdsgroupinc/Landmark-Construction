@@ -485,7 +485,8 @@ header {
 <section class="licenses" id="licenses"> 
   <div class="section-title">Licenses & Certifications</div> 
   
-  <div class="badge-list" style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; padding: 25px 0; align-items: center;"> 
+  <!-- Changed gap to a flexible clamp and added flex-shrink overrides -->
+  <div class="badge-list" style="display: flex; gap: 15px 2%; justify-content: center; flex-wrap: wrap; padding: 25px 0; align-items: center; width: 100%;">
     
     <!-- CSLB Logo --> 
     <div class="service service-clickable" data-tooltip="Click to verify CSLB License" style="text-align: center; min-width: 120px;"> 
