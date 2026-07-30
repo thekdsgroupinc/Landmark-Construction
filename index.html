@@ -481,56 +481,124 @@ header {
   </div>
 </div> <!-- Ensure this is the absolute end of the modal container block -->
  
-  
-<section class="licenses" id="licenses"> 
+  <section class="licenses" id="licenses"> 
   <div class="section-title">Licenses & Certifications</div> 
   
-  <!-- Changed gap to a flexible clamp and added flex-shrink overrides -->
-  <div class="badge-list" style="display: flex; gap: 15px 2%; justify-content: center; flex-wrap: wrap; padding: 25px 0; align-items: center; width: 100%;"> 
+  <!-- "badge-list" main flexible container wrapper -->
+  <div class="badge-list"> 
     
     <!-- CSLB Logo --> 
-    <div class="service service-clickable" data-tooltip="Click to verify CSLB License" style="text-align: center; flex: 0 1 auto;"> 
-      <a href="https://ca.gov" target="_blank" style="text-decoration: none; color: inherit; display: block;"> 
-        <img src="cslb_logo.gif" alt="CSLB Logo" style="width:80px; max-width: 100%; height:auto; display: block; margin: 0 auto;"> 
-        <p style="font-size: 11px; margin-top: 8px; font-weight: normal; text-align: center; margin-bottom: 0; white-space: nowrap;">CSLB #1123423</p> 
+    <div class="service service-clickable" data-tooltip="Click to verify CSLB License"> 
+      <a href="https://ca.gov" target="_blank"> 
+        <img src="cslb_logo.gif" alt="CSLB Logo"> 
+        <p>CSLB #1123423</p> 
       </a> 
     </div> 
 
     <!-- SPCB Logo --> 
-    <div class="service service-clickable" data-tooltip="Click to verify SPCB Registration" style="text-align: center; flex: 0 1 auto;"> 
-      <a href="https://ca.gov" target="_blank" style="text-decoration: none; color: inherit; display: block;"> 
-        <img src="SPCB-Logo.jpg" alt="SPCB Logo" style="width:96px; max-width: 100%; height:auto; display: block; margin: 0 auto;"> 
-        <p style="font-size: 11px; margin-top: 8px; font-weight: normal; text-align: center; margin-bottom: 0; white-space: nowrap;">SPCB #9841</p> 
+    <div class="service service-clickable" data-tooltip="Click to verify SPCB Registration"> 
+      <a href="https://ca.gov" target="_blank"> 
+        <img src="SPCB-Logo.jpg" alt="SPCB Logo"> 
+        <p>SPCB #9841</p> 
       </a> 
     </div> 
 
     <!-- ICC Logo --> 
-    <div class="service service-clickable" data-tooltip="Click to verify ICC Certification" style="text-align: center; flex: 0 1 auto;"> 
-      <a href="https://iccsafe.org" target="_blank" style="text-decoration: none; color: inherit; display: block;"> 
-        <img src="ICC logo.png" alt="ICC logo" style="width:96px; max-width: 100%; height:auto; display: block; margin: 0 auto;"> 
-        <p style="font-size: 11px; margin-top: 8px; font-weight: normal; text-align: center; margin-bottom: 0; white-space: nowrap;">ICC #8037187</p> 
+    <div class="service service-clickable" data-tooltip="Click to verify ICC Certification"> 
+      <a href="https://iccsafe.org" target="_blank"> 
+        <img src="ICC logo.png" alt="ICC logo"> 
+        <p>ICC #8037187</p> 
       </a> 
     </div> 
 
     <!-- SFDBI Logo --> 
-    <div class="service service-clickable" data-tooltip="Click to verify SFDBI Compliance" style="text-align: center; flex: 0 1 auto;"> 
-      <a href="https://sf.gov" target="_blank" style="text-decoration: none; color: inherit; display: block;"> 
-        <img src="Seal_of_SF.png" alt="Seal of SF" style="width:93px; max-width: 100%; height:auto; display: block; margin: 0 auto;"> 
-        <p style="font-size: 11px; margin-top: 8px; font-weight: normal; text-align: center; margin-bottom: 0; white-space: nowrap;">SFDBI #389</p> 
+    <div class="service service-clickable" data-tooltip="Click to verify SFDBI Compliance"> 
+      <a href="https://sf.gov" target="_blank"> 
+        <img src="Seal_of_SF.png" alt="Seal of SF"> 
+        <p>SFDBI #389</p> 
       </a> 
     </div> 
 
     <!-- Certainteed Credential Logo --> 
-    <div class="service service-clickable" data-tooltip="Click to verify Certification" style="text-align: center; flex: 0 1 auto;"> 
-      <a href="https://certainteed.com" target="_blank" style="text-decoration: none; color: inherit; display: block;"> 
-        <img src="ShingleMaster PRO.jpg" alt="ShingleMaster PRO" style="width:93px; max-width: 100%; height:auto; display: block; margin: 0 auto;"> 
-        <p style="font-size: 11px; margin-top: 8px; font-weight: normal; text-align: center; margin-bottom: 0; white-space: nowrap;"></p> 
+    <div class="service service-clickable" data-tooltip="Click to verify Certification"> 
+      <a href="https://certainteed.com" target="_blank"> 
+        <img src="ShingleMaster PRO.jpg" alt="ShingleMaster PRO"> 
+        <p></p> 
       </a> 
     </div> 
 
   </div> <!-- Closes .badge-list -->
-  
+
   <style>
+  /* ==========================================================================
+     LAYOUT STRUCTURE (Forcing one single row on desktop, stacking on mobile)
+     ========================================================================== */
+  
+  /* Desktop Layout Styles (Screen width 769px and above) */
+  @media (min-width: 769px) {
+    .badge-list {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important; /* Strictly prevents the 5th logo from dropping */
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 15px !important; /* Tight internal spacing */
+      padding: 25px 0;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .badge-list .service {
+      flex: 1 1 0px !important; /* Forces all 5 columns to take equal, fluid space */
+      min-width: 0 !important;   /* Allows columns to scale below text boundaries */
+      text-align: center;
+    }
+  }
+
+  /* Mobile Layout Styles (Screen width 768px and down) */
+  @media (max-width: 768px) {
+    .badge-list {
+      display: flex !important;
+      flex-direction: column !important; /* Stacks items vertically on small monitors */
+      align-items: center !important;
+      gap: 30px !important;
+      padding: 25px 0;
+    }
+
+    .badge-list .service {
+      width: 100% !important;
+      text-align: center;
+    }
+  }
+
+  /* Global Inner Content Rules */
+  .badge-list .service img {
+    max-width: 90px !important; /* Constrains image sizes so they do not crowd each other */
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .badge-list .service p {
+    font-size: 11px !important;
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap; /* Keeps numbers on a single line string */
+  }
+
+  .badge-list .service a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  /* ==========================================================================
+     CLEANUP OVERRIDES (Removing boxes, shadows, and adding text colors)
+     ========================================================================== */    
   /* Ensure these specific logo wrappers have no background or borders */
   .badge-list .service {
     background: transparent !important;
