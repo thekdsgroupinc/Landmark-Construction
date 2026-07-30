@@ -250,6 +250,25 @@ header {
       object-fit: cover; 
     }
 
+     /* --- NEW CARD POP-UP & TAP ANIMATIONS --- */
+    .service {
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      will-change: transform;
+    }
+
+    @media (hover: hover) {
+      .service:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    .service:active {
+      transform: translateY(2px) scale(0.98);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
     /* --- ADDED FOR THE HOVER CURSOR & TOOLTIP --- */
     .service-clickable {
       position: relative; 
@@ -281,6 +300,7 @@ header {
   </style>
 </head>
 <body>
+  
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light sticky-top">
     <div class="container-fluid">
