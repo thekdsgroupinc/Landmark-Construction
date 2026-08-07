@@ -77,10 +77,19 @@
       margin-bottom: 0; /* REMOVES the gap at the very bottom of the banner */
       white-space: nowrap; /* Prevents text from breaking into two lines */
     }
-     main.container h2 {
-      margin-top: -88px;
-      padding-top: 5px; /* Adjust this number to nudge it up or down */
-    }
+
+    /* MATCHED SPACING FOR MAIN HEADINGS */
+main.container h2 {
+  margin-top: -88px; /* Set to -88px to match your preferred banner spacing */
+  padding-top: 5px;  /* Adjust this number to nudge it up or down */
+}
+
+/* SAFE MATCHED SPACING FOR THE DISCLAIMER ONLY */
+main.container p.text-muted {
+  margin-top: -88px; /* Matches the heading shift perfectly to pull the text up */
+  padding-top: 5px;  /* Matches the visual placement perfectly */
+}
+
      /* Fee Section Table Styles (Updated for Mobile Width) */
     .fee-section {
       max-width: 1140px;
