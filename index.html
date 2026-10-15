@@ -297,6 +297,32 @@ header {
       opacity: 1;
     }
 
+/* Ticker Container */
+.logo-subtitle-ticker {
+  height: 20px; /* Adjust based on your text size */
+  overflow: hidden;
+  margin-top: 5px; /* Spacing below the logo image */
+  font-size: 0.85rem; /* Smaller text for the subtitle */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #555; /* Adjust color to match your branding */
+}
+
+/* Inner block that moves */
+.ticker-inner {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Individual rotating words */
+.ticker-item {
+  height: 20px; /* Must match .logo-subtitle-ticker height */
+  line-height: 20px;
+  text-align: center;
+}
+
+
+    
   </style>
 </head>
 <body>
