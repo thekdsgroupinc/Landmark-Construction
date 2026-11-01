@@ -183,16 +183,23 @@ main.container p.text-muted {
 
   <!-- 1. The Header Banner -->
   <header class="main-banner">
-    <div class="container">
-      <h1>San Francisco Bay Area Inspection Fees & Pricing</h1>
+    <div class="container text-center">
+      <h1>San Francisco Bay Area Inspection Fees &amp; Pricing</h1>
+      <!-- Local SEO Sub-header that follows global text settings and automatically fits mobile screens -->
+      <p class="text-muted mt-2 mb-0" style="font-size: calc(0.875rem + 0.2vw); font-weight: normal;">
+        Official inspection fee structures for properties located throughout <strong>San Francisco, San Mateo County, and the Peninsula</strong>.
+      </p>
     </div>
   </header>
 
-  <main class="container my-5">
+  <!-- 2. Main Pricing Container with Embedded SEO Data Layer -->
+  <main class="container my-5" itemscope itemtype="https://schema.org">
+    <div class="text-center text-danger font-weight-bold mb-4 small">
+      <em>*ALL PRICES ARE SUBJECT TO CHANGE*</em>
+    </div>
+
     <div class="table-responsive"> <!-- Adds a scrollbar on mobile so it doesn't break -->
         <table class="table fee-table">
-            <!-- Your table content -->
-        </table>
     </div>
 </main>
 
