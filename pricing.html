@@ -202,7 +202,7 @@ main.container p.text-muted {
 
     
     <!-- 3. The Pricing Table Section -->
-    <section class="fee-section">
+    <section class="fee-section" itemscope itemtype="https://schema.org">
       <table class="fee-table">
         <thead>
           <tr>
@@ -213,29 +213,29 @@ main.container p.text-muted {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Under 1,499</td>
-            <td>$650.00</td>
-            <td>$425.00</td>
-            <td>$1,075.00</td>
+          <tr itemscope itemtype="https://schema.org">
+            <td><span itemprop="description">Under 1,499</span></td>
+            <td><span itemprop="name">General Property Inspection</span>: <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="650.00">$650.00</span></td>
+            <td><span itemprop="name">WDO Termite Inspection</span>: <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="425.00">$425.00</span></td>
+            <td><span itemprop="name">Combo Package (Property/Roof/Termite)</span>: <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="1075.00">$1,075.00</span></td>
           </tr>
-          <tr>
-            <td>1,500 – 1,999</td>
-            <td>$700.00</td>
-            <td>$475.00</td>
-            <td>$1,175.00</td>
+          <tr itemscope itemtype="https://schema.org">
+            <td><span itemprop="description">1,500 – 1,999</span></td>
+            <td><span itemprop="name">General Property Inspection</span>: <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="700.00">$700.00</span></td>
+            <td><span itemprop="name">WDO Termite Inspection</span>: <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="475.00">$475.00</span></td>
+            <td><span itemprop="name">Combo Package (Property/Roof/Termite)</span>: <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="1175.00">$1,175.00</span></td>
           </tr>
-          <tr>
-            <td>2,000 – 2,499</td>
-            <td>$800.00</td>
-            <td>$525.00</td>
-            <td>$1,325.00</td>
+          <tr itemscope itemtype="https://schema.org">
+            <td><span itemprop="description">2,000 – 2,499</span></td>
+            <td><span itemprop="name">General Property Inspection</span>: <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="800.00">$800.00</span></td>
+            <td><span itemprop="name">WDO Termite Inspection</span>: <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="525.00">$525.00</span></td>
+            <td><span itemprop="name">Combo Package (Property/Roof/Termite)</span>: <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="1325.00">$1,325.00</span></td>
           </tr>
-          <tr>
-            <td>2,500 – 2,999</td>
-            <td>$900.00</td>
-            <td>$575.00</td>
-            <td>$1,450.00</td>
+          <tr itemscope itemtype="https://schema.org">
+            <td><span itemprop="description">2,500 – 2,999</span></td>
+            <td><span itemprop="name">General Property Inspection</span>: <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="900.00">$900.00</span></td>
+            <td><span itemprop="name">WDO Termite Inspection</span>: <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="575.00">$575.00</span></td>
+            <td><span itemprop="name">Combo Package (Property/Roof/Termite)</span>: <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="1450.00">$1,450.00</span></td>
           </tr>
           <tr>
             <td>All other</td>
@@ -246,21 +246,22 @@ main.container p.text-muted {
 
       <!-- 4. Extra Services -->
      <div class="extra-fees mt-4">
-        <p><strong>Additional Inspection Services & Fees:</strong></p>
+        <p><strong>Additional Inspection Services &amp; Fees:</strong></p>
         <div class="d-flex justify-content-between border-bottom py-2">
           <div>
-            <div class="py-1">Professional Roof Inspections:</div>
-            <div class="py-1">SF (RECO) Energy and Water Compliance Inspection:</div>
-            <div class="py-1">Insurance Notice Inspection:</div>
+            <div class="py-1" itemscope itemtype="https://schema.org"><span itemprop="name">Professional Roof Inspections</span>:</div>
+            <div class="py-1" itemscope itemtype="https://schema.org"><span itemprop="name">SF (RECO) Energy and Water Compliance Inspection</span>:</div>
+            <div class="py-1" itemscope itemtype="https://schema.org"><span itemprop="name">Insurance Notice Inspection</span>:</div>
           </div>
           <div class="d-flex flex-column align-items-end justify-content-center text-end">
-            <span class="py-1">$250.00</span>
-            <span class="py-1">$425.00</span>
+            <span class="py-1"><meta itemprop="priceCurrency" content="USD" /><meta itemprop="price" content="250.00" />$250.00</span>
+            <span class="py-1"><meta itemprop="priceCurrency" content="USD" /><meta itemprop="price" content="425.00" />$425.00</span>
             <span class="py-1">Call for pricing</span>
           </div>
         </div>
       </div>
     </section>
+
 
   <!-- 5. Navigation Button -->
 <div class="mt-5">
