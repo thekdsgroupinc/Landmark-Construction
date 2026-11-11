@@ -487,28 +487,45 @@ header {
     <form id="contactForm">
       <h2>Contact Us</h2>
       
-      <input type="text" id="contactName" placeholder="Your Name" required>
-      <input type="email" id="contactEmail" placeholder="Your Email" required>
+      <!-- Silent Honeypot for Formspree (Hidden from humans, traps bots) -->
+      <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+
+      <input type="text" id="contactName" name="name" placeholder="Your Name" required>
+      <input type="email" id="contactEmail" name="email" placeholder="Your Email" required>
       
       <!-- Phone Field -->
       <input 
         type="tel" 
         id="contactPhone" 
+        name="phone"
         placeholder="Phone Number" 
         required 
         pattern="\(\d{3}\) \d{3}-\d{4}" 
         title="Please enter a valid phone number: (XXX) XXX-XXXX"
       >
       
-      <textarea id="contactMessage" placeholder="Your Message" required></textarea>
+      <textarea id="contactMessage" name="message" placeholder="Your Message" required></textarea>
 
-         <!-- Displayed Contact Number -->
-      <p class="form-phone-display">Call us directly: <a href="tel:(650) 273-3008">(650) 273-3008</a></p>
+      <!-- Displayed Contact Number (Assembled via JS to block scrapers) -->
+      <p class="form-phone-display">Call us directly: <span id="protectedPhone"></span></p>
       
       <button type="submit">Send</button>
     </form>
   </div>
 </div> <!-- Ensure this is the absolute end of the modal container block -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const a = "650", b = "273", c = "3008";
+    const formatted = `(${a}) ${b}-${c}`;
+    const dialable = `+1${a}${b}${c}`;
+    const phoneEl = document.getElementById("protectedPhone");
+    
+    if (phoneEl) {
+      phoneEl.innerHTML = `<a href="tel:${dialable}">${formatted}</a>`;
+    }
+  });
+</script>
  
   <section class="licenses" id="licenses"> 
   <div class="section-title">Licenses & Certifications</div> 
