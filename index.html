@@ -498,11 +498,6 @@
 </section>
 
 <div class="custom-bg-image"></div>
-
-<!-- Floating Contact Button -->
-<button id="floatingContactBtn" type="button" aria-label="Contact Us">
-  💬 Contact Us
-</button>
  
   <section class="licenses" id="licenses"> 
   <div class="section-title">Licenses & Certifications</div> 
@@ -1007,20 +1002,7 @@
       });
     }
 
-    // Safe link checker to close the contact modal and menu
-    document.addEventListener('click', (e) => {
-      const clickedLink = e.target.closest('nav a, header a, .nav-links a, .nav-menu a');
-      
-      // ONLY run this if a link was clicked, and it is NOT your contact button/link
-      if (clickedLink && clickedLink !== contactLink && clickedLink !== floatingBtn) {
-        
-        // 1. Safely close the modal form when clicking other pages
-        const modal = document.getElementById('contactModal');
-        if (modal) {
-          modal.classList.remove('is-open');
-        }
-
-        // 2. Safely close the mobile menu
+            // 2. Safely close the mobile menu
         const mobileMenu = document.querySelector('.nav-links, .nav-menu, #mobile-menu, #nav-menu');
         const hamburgerBtn = document.querySelector('.hamburger, .menu-toggle, #hamburger, .nav-toggle');
         
@@ -1031,5 +1013,25 @@
 
   }); // End of DOMContentLoaded
 </script>
+
+<!-- Paste the standalone open/close script right here, before </body> -->
+<script>
+  document.addEventListener('click', function (e) {
+    const modal = document.getElementById('contactModal');
+    if (!modal) return;
+
+    // 1. Open modal when clicking either the floating button OR the top menu Contact Us link
+    if (e.target.closest('#floatingContactBtn') || e.target.closest('#contactLink')) {
+      e.preventDefault();
+      modal.classList.add('is-open');
+    }
+
+    // 2. Close modal when clicking the 'X' button or the dark background overlay
+    if (e.target.closest('.close-btn') || e.target === modal) {
+      modal.classList.remove('is-open');
+    }
+  });
+</script>
+
 </body>
 </html>
