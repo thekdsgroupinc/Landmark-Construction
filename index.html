@@ -1013,8 +1013,25 @@
 
   }); // End of DOMContentLoaded
 </script>
+  
+<script>
+  document.addEventListener('click', function (e) {
+    const modal = document.getElementById('contactModal');
+    if (!modal) return;
 
-<!-- Paste the standalone open/close script right here, before </body> -->
+    // 1. Open modal when clicking either the floating button OR the top menu Contact Us link
+    if (e.target.closest('#floatingContactBtn') || e.target.closest('#contactLink')) {
+      e.preventDefault();
+      modal.classList.add('is-open');
+    }
+
+    // 2. Close modal when clicking the 'X' button or the dark background overlay
+    if (e.target.closest('.close-btn') || e.target === modal) {
+      modal.classList.remove('is-open');
+    }
+  });
+</script>
+
 <script>
   document.addEventListener('click', function (e) {
     const modal = document.getElementById('contactModal');
