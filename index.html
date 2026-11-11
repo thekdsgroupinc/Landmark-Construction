@@ -3,36 +3,36 @@
 <head>
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PG53TDTKL6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PG53TDTKL6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-PG53TDTKL6');
+    gtag('config', 'G-PG53TDTKL6');
     // Force Analytics to track slider section views natively
-  window.addEventListener('hashchange', function() {
-    if (typeof gtag === 'function') {
-      gtag('event', 'page_view', {
-        page_title: document.title + ' - ' + window.location.hash,
-        page_location: window.location.href,
-        page_path: window.location.pathname + window.location.hash
-      });
-    }
-  });
-</script>
+    window.addEventListener('hashchange', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'page_view', {
+          page_title: document.title + ' - ' + window.location.hash,
+          page_location: window.location.href,
+          page_path: window.location.pathname + window.location.hash
+        });
+      }
+    });
+  </script>
  
   <meta charset="UTF-8">
- <title>Landmark Construction & Roofing | Top Roofers SF & Peninsula</title>
-   <link rel="icon" type="image/x-icon" href="favicon-32x32 L.png">
+  <title>Landmark Construction & Roofing | Top Roofers SF & Peninsula</title>
+  <link rel="icon" type="image/x-icon" href="favicon-32x32 L.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Universal Link Preview Settings (Kept completely separate from design layout) --> 
-<meta property="og:title" content="Landmark Construction & Roofing | Top-Rated SF & Peninsula Roofers">
-<meta property="og:image" content="Wooden House.jpg"> 
-<meta property="og:url" content="https://thelandmarkinc.com">
+  <meta property="og:title" content="Landmark Construction & Roofing | Top-Rated SF & Peninsula Roofers">
+  <meta property="og:image" content="Wooden House.jpg"> 
+  <meta property="og:url" content="https://thelandmarkinc.com">
 
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -40,8 +40,13 @@
       background: #fff;
       color: #222;
       position: relative;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
     }
-        .section-title {
+    body.page-loaded {
+      opacity: 1;
+    }
+    .section-title {
       font-family: 'Ink Free', sans-serif;
       font-size: 2em;
       margin-bottom: 20px;
@@ -71,12 +76,12 @@
       color: #008000 !important;
       border-bottom: 2px solid #008000;
     }
-header {
-  background: transparent;
-  padding: 0;  /* changed from 8px */
-  text-align: center;
-  margin-bottom: 10;  /* changed from 10px */
-}
+    header {
+      background: transparent;
+      padding: 0;
+      text-align: center;
+      margin-bottom: 10px;
+    }
    
     .main-image {
       width: 100%;
@@ -94,12 +99,6 @@ header {
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
-    .section-title {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #222;
-      text-align: center;
-    }
     .service-list {
       display: flex;
       flex-wrap: wrap;
@@ -111,9 +110,11 @@ header {
       background: #fff;
       border-radius: 8px;
       padding: 16px 24px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
       flex: 1 1 220px;
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      will-change: transform;
     }
     .service-title {
       font-weight: bold;
@@ -125,18 +126,18 @@ header {
       list-style: none;
       margin: 0;
     }
-   .licenses p {
-  margin: 6px 0;
-  text-align: center;
-}
-.about p {
-  margin: 6px 0;
-  text-align: left;
-}
+    .licenses p {
+      margin: 6px 0;
+      text-align: center;
+    }
+    .about p {
+      margin: 6px 0;
+      text-align: left;
+    }
     .service-areas p {
-  margin: 6px 0;
-  text-align: left;
-}
+      margin: 6px 0;
+      text-align: left;
+    }
     .project-list-images {
       display: flex;
       flex-wrap: wrap;
@@ -168,7 +169,7 @@ header {
         align-items: center;
       }
     }
-       .custom-bg-image {
+    .custom-bg-image {
       width: 100%;
       height: 588px;
       background-image: url('Wooden House.jpg');
@@ -178,95 +179,118 @@ header {
       background-attachment: fixed;
       margin: 0 auto;
     }
-/* Full screen dark/translucent background overlay */
-.modal-overlay {
-  position: fixed;
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0;
-  width: 100vw; 
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4); /* Dims the page content behind the popup */
-  
-  /* CRUCIAL LAYOUT FOR CENTERING: */
-  display: flex;           
-  align-items: center;     
-  justify-content: center;  
-  
-  z-index: 1000;
 
-  /* === ADDED FOR FADE ANIMATION === */
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-}
+    /* === FLOATING CONTACT US BUTTON (BRAND GREEN) === */
+    #floatingContactBtn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999; /* Sits above page content, right below modal-overlay (1000) */
+      padding: 12px 22px;
+      background-color: #008000; /* Matches your Landmark green */
+      color: #ffffff;
+      font-family: Calibri, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    #floatingContactBtn:hover {
+      background-color: #006400; /* Matches your submit button hover */
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+    #floatingContactBtn:active {
+      transform: translateY(0);
+    }
+    @media (max-width: 600px) {
+      #floatingContactBtn {
+        bottom: 16px;
+        right: 16px;
+        padding: 10px 18px;
+        font-size: 15px;
+      }
+    }
 
-/* === ADDED TO TRIGGER FADE IN === */
-.modal-overlay.is-open {
-  opacity: 1;
-  visibility: visible;
-}
-/* The actual white box containing the form */
-.modal-content {
-  background: #fff;
-  border-radius: 8px;
-  padding: 40px 32px 24px 32px; /* Increased top padding so inputs don't touch the X button */
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
-  min-width: 320px;
-  max-width: 90vw;
-  position: relative; /* Crucial for positioning the X button */
-}
-
-   /* Form input spacing */
-#contactForm input,
-#contactForm textarea {
-  width: 100%;
-  margin-bottom: 12px;
-  box-sizing: border-box;
-  display: block;
-  padding: 8px;
-}
-    
-/* The Close "X" Button */
-.close-btn {
-  position: absolute;
-  right: 16px;
-  top: 12px;
-  font-size: 26px;
-  cursor: pointer;
-  color: #333;
-  line-height: 1;
-  z-index: 1010; /* Keeps the X clickable and on top of inputs */
-}
-.close-btn:hover {
-  color: #008000; /* Turns green on hover so you know it's interactive */
-}
-/* Style for your specific submit button */
-#contactForm button[type="submit"] {
-  width: 100%;
-  background-color: #008000; /* Your exact green color */
-  color: #ffffff;            /* Pure white text */
-  border: none;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 6px;        /* Rounds the button corners */
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-#contactForm button[type="submit"]:hover {
-  background-color: #006400; /* Darker green on hover */
-}
-      /* === ADDED FOR SMOOTH PAGE TRANSITIONS === */
-    body {
+    /* Full screen dark/translucent background overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      right: 0; 
+      bottom: 0;
+      width: 100vw; 
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;           
+      align-items: center;     
+      justify-content: center;  
+      z-index: 1000;
       opacity: 0;
-      transition: opacity 0.4s ease-in-out;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
     }
-    body.page-loaded {
+
+    .modal-overlay.is-open {
       opacity: 1;
+      visibility: visible;
     }
-    /* ========================================= */
+
+    /* The actual white box containing the form */
+    .modal-content {
+      background: #fff;
+      border-radius: 8px;
+      padding: 40px 32px 24px 32px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+      min-width: 320px;
+      max-width: 90vw;
+      position: relative;
+    }
+
+    /* Form input spacing */
+    #contactForm input,
+    #contactForm textarea {
+      width: 100%;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+      display: block;
+      padding: 8px;
+    }
+    
+    /* The Close "X" Button */
+    .close-btn {
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      font-size: 26px;
+      cursor: pointer;
+      color: #333;
+      line-height: 1;
+      z-index: 1010;
+    }
+    .close-btn:hover {
+      color: #008000;
+    }
+
+    /* Style for your specific submit button */
+    #contactForm button[type="submit"] {
+      width: 100%;
+      background-color: #008000;
+      color: #ffffff;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    #contactForm button[type="submit"]:hover {
+      background-color: #006400;
+    }
 
     /* Carousel image styling */ 
     .carousel-img { 
@@ -275,13 +299,7 @@ header {
       object-fit: cover; 
     }
 
-     /* --- NEW CARD POP-UP & TAP ANIMATIONS --- */
-    .service {
-      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      will-change: transform;
-    }
-
+    /* --- CARD POP-UP & TAP ANIMATIONS --- */
     @media (hover: hover) {
       .service:hover {
         transform: translateY(-8px) scale(1.02);
@@ -294,7 +312,7 @@ header {
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    /* --- ADDED FOR THE HOVER CURSOR & TOOLTIP --- */
+    /* --- HOVER CURSOR & TOOLTIP --- */
     .service-clickable {
       position: relative; 
       cursor: pointer !important; 
@@ -321,10 +339,10 @@ header {
     .service-clickable:hover::after {
       opacity: 1;
     }
-    
   </style>
 </head>
 <body>
+
   
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light sticky-top">
