@@ -772,21 +772,85 @@
           <!-- Bootstrap 5 JavaScript Bundle with Popper (Required for Mobile Menu) -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   
-<!-- Your Custom Pop-Up Form Script -->
+<!-- Bootstrap 5 JavaScript Bundle with Popper (Required for Mobile Menu) -->
+<script src="https://jsdelivr.net"></script>
+  
+<!-- Unified Pop-Up Form, Floating Button & Anti-Scraping Script -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // 0. Inject Floating Button & Modal onto every page automatically
+    if (!document.getElementById('contactModal')) {
+      const widgetHTML = `
+        <button id="floatingContactBtn" type="button" aria-label="Contact Us">
+          💬 Contact Us
+        </button>
+
+        <div id="contactModal" class="modal-overlay">
+          <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <form id="contactForm">
+              <h2>Contact Us</h2>
+              
+              <!-- Silent Honeypot Field (Traps Bots) -->
+              <input type="text" id="contactGotcha" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+
+              <input type="text" id="contactName" placeholder="Your Name" required>
+              <input type="email" id="contactEmail" placeholder="Your Email" required>
+              
+              <!-- Phone Field -->
+              <input 
+                type="tel" 
+                id="contactPhone" 
+                placeholder="Phone Number" 
+                required 
+                pattern="\\(\\d{3}\\) \\d{3}-\\d{4}" 
+                title="Please enter a valid phone number: (XXX) XXX-XXXX"
+              >
+              
+              <textarea id="contactMessage" placeholder="Your Message" required></textarea>
+
+              <!-- Protected Contact Number (Assembled via JS to block scrapers) -->
+              <p class="form-phone-display">Call us directly: <span id="protectedPhone"></span></p>
+              
+              <button type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+      `;
+      document.body.insertAdjacentHTML('beforeend', widgetHTML);
+    }
+
+    // Assemble Phone Number Dynamically (Hidden from raw HTML scrapers)
+    const a = "650", b = "273", c = "3008";
+    const phoneEl = document.getElementById('protectedPhone');
+    if (phoneEl) {
+      phoneEl.innerHTML = `<a href="tel:+1${a}${b}${c}">(${a}) ${b}-${c}</a>`;
+    }
+
     const contactLink = document.getElementById('contactLink');
+    const floatingBtn = document.getElementById('floatingContactBtn');
     const contactModal = document.querySelector('.modal-overlay');
     const closeBtn = document.querySelector('.close-btn');
 
+    // Helper to close Bootstrap mobile menu safely
+    function closeMobileMenu() {
+      const navbarCollapse = document.getElementById('navbarNav');
+      if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+        navbarCollapse.classList.remove('show');
+        const togglerBtn = document.querySelector('.navbar-toggler');
+        if (togglerBtn) {
+          togglerBtn.setAttribute('aria-expanded', 'false');
+          togglerBtn.classList.add('collapsed');
+        }
+      }
+    }
+
     // 1. Core Event Listeners (Always active if modal and close button exist)
     if (contactModal && closeBtn) {
-      // Close button action
       closeBtn.addEventListener('click', () => {
         contactModal.classList.remove('is-open'); 
       });
 
-      // Clicking outside the white box action
       window.addEventListener('click', (e) => {
         if (e.target === contactModal) {
           contactModal.classList.remove('is-open'); 
@@ -794,49 +858,42 @@
       });
     }
     
-    // 2. Regular Link Click (If the button exists on this specific page)
+    // 2A. Regular Top Nav Link Click (Opens immediately on ANY page without redirecting)
     if (contactLink && contactModal) {
       contactLink.addEventListener('click', (e) => {
         e.preventDefault(); 
         contactModal.classList.add('is-open'); 
-
-        // Close Bootstrap mobile menu container safely
-        const navbarCollapse = document.getElementById('navbarNav');
-        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-          navbarCollapse.classList.remove('show');
-          const togglerBtn = document.querySelector('.navbar-toggler');
-          if (togglerBtn) {
-            togglerBtn.setAttribute('aria-expanded', 'false');
-            togglerBtn.classList.add('collapsed');
-          }
-        }
+        closeMobileMenu();
       });
     }
 
-    // 3. Cross-Page Redirect Checker (Runs smoothly on page landing)
+    // 2B. Floating Button Click (Opens immediately on ANY page)
+    if (floatingBtn && contactModal) {
+      floatingBtn.addEventListener('click', () => {
+        contactModal.classList.add('is-open');
+        closeMobileMenu();
+      });
+    }
+
+    // 3. Cross-Page Redirect Checker (Runs smoothly on page landing if ?openContact=true is in URL)
     if (contactModal) {
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.get('openContact') === 'true') {
-        
-        // Staggered delay allows index page rendering engine to settle
         setTimeout(() => {
           requestAnimationFrame(() => {
             contactModal.classList.add('is-open'); 
           });
         }, 200); 
-
-               // Cleans up the URL bar beautifully
         window.history.replaceState({}, document.title, window.location.pathname);
       }
     }
 
- // 4. Smoothly scroll to inner section titles and auto-close the Bootstrap mobile menu
+    // 4. Smoothly scroll to inner section titles and auto-close the Bootstrap mobile menu
     document.querySelectorAll('.navbar-nav .nav-link:not(#contactLink)').forEach(link => {
       link.addEventListener('click', (e) => {
         let targetId = link.getAttribute('href');
         if (!targetId) return;
 
-        // If the link includes 'index.html#', strip out the page name on the fly
         if (targetId.includes('index.html#')) {
           targetId = targetId.substring(targetId.indexOf('#'));
         }
@@ -849,14 +906,12 @@
         if (targetSection && navbar) {
           e.preventDefault(); 
 
-          // Look for the specific inner title element inside your section box
           const innerTitle = targetSection.querySelector('.section-title, .pricing-title, h2, h3');
           const elementToScrollTo = innerTitle ? innerTitle : targetSection;
 
-          // Calculate navbar height and elements coordinates
           const navHeight = navbar.offsetHeight;
           const targetPosition = elementToScrollTo.getBoundingClientRect().top + window.scrollY;
-          const extraBreathingRoom = 25; // Increased to 25px to keep titles completely visible
+          const extraBreathingRoom = 25;
 
           window.scrollTo({
             top: targetPosition - navHeight - extraBreathingRoom,
@@ -864,79 +919,57 @@
           });
         }
 
-        // Close the Bootstrap mobile menu drawer container safely
-        const navbarCollapse = document.getElementById('navbarNav');
-        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-          navbarCollapse.classList.remove('show');
-          const togglerBtn = document.querySelector('.navbar-toggler');
-          if (togglerBtn) {
-            togglerBtn.setAttribute('aria-expanded', 'false');
-            togglerBtn.classList.add('collapsed');
-          }
-        }
+        closeMobileMenu();
       });
     });
 
-// FIX FOR CROSS-PAGE ARRIVALS: Runs when arriving from pricing.html
-window.addEventListener('load', () => {
-  if (window.location.hash) {
-    const targetSection = document.querySelector(window.location.hash);
-    const navbar = document.querySelector('.navbar');
+    // FIX FOR CROSS-PAGE ARRIVALS: Runs when arriving from pricing.html
+    window.addEventListener('load', () => {
+      if (window.location.hash) {
+        const targetSection = document.querySelector(window.location.hash);
+        const navbar = document.querySelector('.navbar');
 
-    if (targetSection && navbar) {
-      const innerTitle = targetSection.querySelector('.section-title, .pricing-title, h2, h3');
-      const elementToScrollTo = innerTitle ? innerTitle : targetSection;
+        if (targetSection && navbar) {
+          const innerTitle = targetSection.querySelector('.section-title, .pricing-title, h2, h3');
+          const elementToScrollTo = innerTitle ? innerTitle : targetSection;
 
-      const navHeight = navbar.offsetHeight;
-      const targetPosition = elementToScrollTo.getBoundingClientRect().top + window.scrollY;
-      const extraBreathingRoom = 25; 
+          const navHeight = navbar.offsetHeight;
+          const targetPosition = elementToScrollTo.getBoundingClientRect().top + window.scrollY;
+          const extraBreathingRoom = 25; 
 
-      // Timeout forces the browser to wait until it finishes its native jump, then fixes it
-      setTimeout(() => {
-        window.scrollTo({
-          top: targetPosition - navHeight - extraBreathingRoom,
-          behavior: 'smooth'
-        });
-      }, 100);
-    }
-  }
-});
+          setTimeout(() => {
+            window.scrollTo({
+              top: targetPosition - navHeight - extraBreathingRoom,
+              behavior: 'smooth'
+            });
+          }, 100);
+        }
+      }
+    });
 
-    
     // === INSERTED PAGE TRANSITION JAVASCRIPT BELOW ===
-    // 1. Smoothly fade the entire page in as soon as the HTML elements render
     document.body.classList.add('page-loaded');
 
-    // 2. Intercept link clicks to fade the page out before switching URLs
-    const links = document.querySelectorAll('a:not([href^="#"]):not([target="_blank"])');
+    // Excludes #contactLink and tel: links so they open immediately instead of fading the page out
+    const links = document.querySelectorAll('a:not([href^="#"]):not([target="_blank"]):not(#contactLink):not([href^="tel:"])');
     links.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const targetUrl = link.href;
 
-        // Smoothly fade the whole page out
         document.body.style.opacity = '0';
 
-        // Wait for the fade-out animation to finish, then redirect
         setTimeout(() => {
           window.location.href = targetUrl;
-        }, 400); // Matches the 0.4s CSS transition time
+        }, 400);
       });
     });
     // === INSERTED PAGE TRANSITION JAVASCRIPT ABOVE ===
 
-     // 3. Close Bootstrap menu when clicking section links on the same page (Services, About)
+    // Close Bootstrap menu when clicking section links on the same page
     document.querySelectorAll('.navbar-nav .nav-link:not(#contactLink)').forEach(link => {
       link.addEventListener('click', () => {
-        const navbarCollapse = document.getElementById('navbarNav');
-        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-          navbarCollapse.classList.remove('show');
-          const togglerBtn = document.querySelector('.navbar-toggler');
-          if (togglerBtn) {
-            togglerBtn.setAttribute('aria-expanded', 'false');
-            togglerBtn.classList.add('collapsed');
-          }
-        }
+        closeMobileMenu();
       });
     });
 
@@ -946,8 +979,8 @@ window.addEventListener('load', () => {
     const phoneInput = document.getElementById('contactPhone');
     if (phoneInput) {
       phoneInput.addEventListener('input', (e) => {
-        let input = e.target.value.replace(/\D/g, ''); // Strip non-digits
-        input = input.substring(0, 10); // Limit to 10 digits
+        let input = e.target.value.replace(/\D/g, '');
+        input = input.substring(0, 10);
         let size = input.length;
         if (size === 0) {
           e.target.value = input;
@@ -961,20 +994,26 @@ window.addEventListener('load', () => {
       });
     }
 
-    
     // ========================================================
-    // === CLOUDFLARE WORKER FORM SUBMISSION CODE START =======
+    // === FORM SUBMISSION CODE WITH HONEYPOT & OBFUSCATION ===
     // ========================================================
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault(); // Stop standard form redirection
+        e.preventDefault();
+
+        // Block bots silently if hidden honeypot field is filled out
+        const gotchaInput = document.getElementById('contactGotcha');
+        if (gotchaInput && gotchaInput.value) {
+          this.reset();
+          if (contactModal) contactModal.classList.remove('is-open');
+          return;
+        }
 
         const button = this.querySelector('button[type="submit"]');
         button.disabled = true;
         button.innerText = 'Sending...';
 
-        // Extract the form fields safely
         const formData = {
           name: document.getElementById('contactName') ? document.getElementById('contactName').value : '',
           email: document.getElementById('contactEmail') ? document.getElementById('contactEmail').value : '',
@@ -983,10 +1022,10 @@ window.addEventListener('load', () => {
         };
 
         try {
-          // 1. Make sure your live worker URL is pasted here inside single quotes:
-          const response = await fetch('https://formspree.io/f/meednvwn', {
-
-            method: 'POST', // <-- CRITICAL: Make sure this is exactly POST in uppercase
+          // Obfuscated Formspree endpoint so scrapers cannot easily grep the URL
+          const endpoint = ['https://formspree.io', 'f', 'meednvwn'].join('/');
+          const response = await fetch(endpoint, {
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json'
@@ -994,12 +1033,9 @@ window.addEventListener('load', () => {
             body: JSON.stringify(formData)
           });
 
-
           if (response.ok) {
             alert('Success! Your message was sent straight to our inbox.');
-            this.reset(); // Reset form text fields
-            
-            // Close the pop-up modal overlay cleanly using your class template
+            this.reset();
             if (contactModal) {
               contactModal.classList.remove('is-open');
             }
@@ -1014,18 +1050,15 @@ window.addEventListener('load', () => {
         }
       });
     }
-    // ========================================================
-    // === CLOUDFLARE WORKER FORM SUBMISSION CODE END =========
-    // ========================================================
 
     // Safe link checker to close the contact modal and menu
     document.addEventListener('click', (e) => {
       const clickedLink = e.target.closest('nav a, header a, .nav-links a, .nav-menu a');
       
       // ONLY run this if a link was clicked, and it is NOT your contact button/link
-      if (clickedLink && clickedLink !== contactLink) {
+      if (clickedLink && clickedLink !== contactLink && clickedLink !== floatingBtn) {
         
-        // 1. Safely close the modal form when clicking other pages (Services, About, etc.)
+        // 1. Safely close the modal form when clicking other pages
         const modal = document.getElementById('contactModal');
         if (modal) {
           modal.classList.remove('is-open');
