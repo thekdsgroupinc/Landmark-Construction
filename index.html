@@ -973,45 +973,58 @@
         };
 
         try {
-          // Obfuscated Formspree endpoint so scrapers cannot easily grep the URL
-          const endpoint = ['https://formspree.io', 'f', 'meednvwn'].join('/');
-          const response = await fetch(endpoint, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify(formData)
-          });
+                 // Obfuscated Formspree endpoint so scrapers cannot easily grep the URL
+        const endpoint = ['https://formspree.io', 'f', 'meednvwn'].join('/');
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
 
-          if (response.ok) {
-            alert('Success! Your message was sent straight to our inbox.');
-            this.reset();
-            if (contactModal) {
-              contactModal.classList.remove('is-open');
-            }
-          } else {
-            alert('Error: Failed to process form submission backend.');
+        if (response.ok) {
+          alert('Success! Your message was sent straight to our inbox.');
+          this.reset();
+          if (contactModal) {
+            contactModal.classList.remove('is-open');
           }
-        } catch (error) {
-          alert('Network error. Check connection or backend settings.');
-        } finally {
-          button.disabled = false;
-          button.innerText = 'Send';
+        } else {
+          alert('Error: Failed to process form submission backend.');
         }
-      });
-    }
-
-                  // 2. Safely close the mobile menu
-        const mobileMenu = document.querySelector('.nav-links, .nav-menu, #mobile-menu, #nav-menu');
-        const hamburgerBtn = document.querySelector('.hamburger, .menu-toggle, #hamburger, .nav-toggle');
-        
-        if (mobileMenu) mobileMenu.classList.remove('open', 'active', 'is-open', 'show');
-        if (hamburgerBtn) hamburgerBtn.classList.remove('open', 'active', 'is-open', 'show');
+      } catch (error) {
+        alert('Network error. Check connection or backend settings.');
+      } finally {
+        button.disabled = false;
+        button.innerText = 'Send';
       }
     });
+  }
 
-  }); // End of DOMContentLoaded
+  // Safe link checker to close the contact modal and menu
+  document.addEventListener('click', (e) => {
+    const clickedLink = e.target.closest('nav a, header a, .nav-links a, .nav-menu a');
+    
+    // ONLY run this if a link was clicked, and it is NOT your contact button/link
+    if (clickedLink && clickedLink !== contactLink && clickedLink !== floatingBtn) {
+      
+      // 1. Safely close the modal form when clicking other pages
+      const modal = document.getElementById('contactModal');
+      if (modal) {
+        modal.classList.remove('is-open');
+      }
+
+      // 2. Safely close the mobile menu
+      const mobileMenu = document.querySelector('.nav-links, .nav-menu, #mobile-menu, #nav-menu');
+      const hamburgerBtn = document.querySelector('.hamburger, .menu-toggle, #hamburger, .nav-toggle');
+      
+      if (mobileMenu) mobileMenu.classList.remove('open', 'active', 'is-open', 'show');
+      if (hamburgerBtn) hamburgerBtn.classList.remove('open', 'active', 'is-open', 'show');
+    }
+  });
+
+}); // End of DOMContentLoaded
 </script>
   
 <script>
